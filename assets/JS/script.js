@@ -64,7 +64,7 @@ $("#searchBtn").on("click", function () {
 
           $("#city").text(keyResponse[0].LocalizedName)
           $("#date").text(moment(forecastResponse.Headline.EffectiveDate).format("MM/DD/YYYY"))
-
+          $("#temperature").text(forecastResponse.DailyForecasts[0].Temperature.Minimum.Value)
 
 
 
