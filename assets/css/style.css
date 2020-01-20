@@ -99,8 +99,8 @@
      top: 68px;
      left: 43px;
      display: block;
-     width: 45px;
-     height: 15px;
+     width: 15px;
+     height: 10px;
      background-color: transparent;
      border-radius: 10px;
      transform: rotateZ(52deg);
@@ -123,17 +123,18 @@
 
  #s-cover:hover #s-circle {
      top: -1px;
-     width: 67px;
+     width: 70px;
      height: 15px;
      border-width: 0;
      background-color: #fff;
-     border-radius: 20px;
+     border-radius: 10px;
  }
-
+/* 
+]= */
  #s-cover:hover span {
-     top: 50%;
-     left: 56px;
-     width: 25px;
+     top: 55%;
+     left: 60px;
+     width: 10px;
      margin-top: -9px;
      transform: rotateZ(0);
  }
@@ -150,7 +151,7 @@
 
  #s-cover:hover button span:before,
  #s-cover:hover button span:after {
-     right: -6px;
+     right: -5px;
      width: 40px;
      background-color: #fff;
  }
@@ -169,18 +170,14 @@
 
 
 
- .footer {
+/*  .footer {
      position: fixed;
      left: 0;
      bottom: 0;
      width: 0%;
-     text-align: center;
-     margin-top: 20px;
-     margin:50px;
-     padding:10px;
-
- }
-
+     margin-top: 10px;
+      }
+ */
 
  #myDiv {
      height: 100vh;
@@ -199,3 +196,15 @@
  .hide {
      display: none;
  }
+ h1,
+ h2{
+     color:#82A0C2;
+     }
+
+ #main-container{
+     background-color: #fff;
+     text-align: center;
+     margin: 0 auto;
+     padding:30px;
+     position:absolute;
+ } 

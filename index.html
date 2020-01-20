@@ -29,44 +29,50 @@
     <h1>Travel Nut</h1>
     <h2>Adventure awaits, go find it!</h2>
     <div id="cover">
-      <form method="get" action="">
-        <div class="tb">
-          <div class="td"><input type="text" placeholder="Search" required></div>
-          <div class="td" id="s-cover">
-            <button type="submit">
-              <div id="s-circle"></div>
-              <span></span>
-            </button>
-          </div>
+      <div class="tb">
+        <div class="td">
+          <input type="text" id="searchInput" placeholder="Search" required>
         </div>
-      </form>
+        <div class="td" id="s-cover">
+          <button id="searchBtn">
+            <div id="s-circle"></div>
+          </button>
+        </div>
+      </div>
     </div>
 
 
     <div class="container">
       <!-- <img src="assets/css/images/travel.gif" alt="travel"></img> -->
       <a href="https://www.tripadvisor.com/Restaurants">
-        <i class="fas fa-utensils" style="font-size:40px;color:#82A0C2"></i>
+        <i class="fas fa-utensils" style="font-size:30px;color:#82A0C2"></i>
       </a>
       <a
         href="https://www.trivago.com/?themeId=114&iPathId=34812&sem_keyword=reserve%20hotel&sem_creativeid=334924274844&sem_matchtype=e&sem_network=g&sem_device=c&sem_placement=&sem_target=&sem_adposition=1t2&sem_param1=&sem_param2=&sem_campaignid=99851886&sem_adgroupid=5212020246&sem_targetid=kwd-51173231&sem_location=9004041&cip=1061900383&gclid=CjwKCAiAsIDxBRAsEiwAV76N891ky2TgoumInE5H1f2KfaIVqE7mE5AL6IUWl1WZQbn7ZxuEN-EbBBoC-A0QAvD_BwE">
-        <i class="fas fa-hotel" style="font-size:40px;color:#82A0C2"></i>
+        <i class="fas fa-hotel" style="font-size:30px;color:#82A0C2"></i>
       </a>
       <a href="https://www.travelchannel.com/interests/shopping/photos/best-shopping-cities-around-the-world">
-        <i class="fas fa-shopping-cart" style="font-size:40px;color:#82A0C2"></i>
+        <i class="fas fa-shopping-cart" style="font-size:30px;color:#82A0C2"></i>
       </a>
       <a
         href="https://www.expedia.com/Flights?langid=1033&semcid=US.MULTILOBF.GOOGLE.GT-c-EN.FLIGHT&semdtl=a1355852835.b125535175155.r1.g1kwd-18708030.i1.d1280328929850.e1c.j19004041.k1.f11t1.n1.l1g.h1e.m1&gclid=CjwKCAiAsIDxBRAsEiwAV76N83hlRcqVVq_uGapGf9uTuozEjXcbe_FrOB6t3mw-WXVGG_ACBk4AGBoCWc0QAvD_BwE">
-        <i class="fas fa-plane" style="font-size:40px;color:#82A0C2"></i>
+        <i class="fas fa-plane" style="font-size:30px;color:#82A0C2"></i>
       </a>
     </div>
+
+    
+      <div class="container">
+        <h3 id="city"></h3>
+        <h3 id="date"></h3>
+      </div>
 
     <div class="footer">
       Contact Information
       <ul>
-        <li><i class="fab fa-facebook-square;color:" blue"></i></li>
-        <li><i class="fab fa-twitter-square"></i></li>
-        <li><i class="fab fa-instagram"></i></li>
+        <span class="icon has-text-info">
+          <li><i class="fab fa-facebook-square"></i></li>
+          <li><i class="fab fa-twitter-square"></i></li>
+          <li><i class="fab fa-instagram"></i></li>
       </ul>
       <ul>
         <li><i class="fas fa-phone-square-alt"></i></li>
@@ -76,6 +82,10 @@
     </div>
 
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="assets/JS/script.js"></script>
+
+
 </body>
 <html>
