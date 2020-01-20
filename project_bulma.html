@@ -21,9 +21,18 @@
         margin: 10px; */
     }
 
+    /* .logo {
+        opacity: 0.5;
+    } */
+
     .reduce-padding-margin-to-5 {
         padding: 5px;
         margin: 5px;
+    }
+
+    .reduce-padding-margin-to-0 {
+        padding: 0px;
+        margin: 0px;
     }
 
     .is-facebook {
@@ -56,17 +65,18 @@
 
 <body>
     <div class="container">
+
         <!-- <section class="hero is-fullheight">
        
         </section> -->
 
-        <section class="hero is-primary">
-            <div class="hero-bod reduce-padding-margin-to-5">
+        <section class="hero is-primary reduce-padding-margin-to-0">
+            <div class="hero-body">
                 <div class="columns">
                     <div class="column">
 
                         <figure class="image">
-                            <img src="images/TravelNutLogo2.png" style="max-width:150px;">
+                            <img src="images/TravelNutLogo2.png" class="logo" style="max-width:150px;">
                         </figure>
                         <h2 class="is-italic has-text-weight-bold has-text-primary">
                             Adventure awaits,
@@ -99,57 +109,74 @@
         </section>
 
 
-        <section class="section has-background-light reduce-padding-margin-to-5">
+        <section class="section reduce-padding-margin-to-0">
             <div class="notification is-primary">
                 <div class="columns">
-                    <div class="column">
+                    <div class="column is-8">
 
                         <h1 class="title is-size-4">Ready to book a trip but not sure where?</h1>
                         <p class="is-size-5">
                             Answer these simple questions and we will suggest top destinations for you:
 
-                            <div class="control">
-                                <label class="radio">
-                                    <input type="radio" name="domesticInternational" checked>
-                                    Domestic
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="domesticInternational">
-                                    International
-                                </label>
-                            </div>
+                            <div class="columns">
+                                <div class="column">
 
-                            <div class="control">
-                                <label class="radio">
-                                    <input type="radio" name="warmAnyweather" checked>
-                                    Warm Weather (Beaches)
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="warmAnyweather">
-                                    Any weather
-                                </label>
-                            </div>
+                                    <div class="control">
+                                        <label class="radio">
+                                            <input type="radio" name="domesticInternational" checked>
+                                            Domestic
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="domesticInternational">
+                                            International
+                                        </label>
+                                    </div>
 
-                            <div class="control">
-                                <label class="radio">
-                                    <input type="radio" name="AdventureRelaxing" checked>
-                                    Adventure
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="AdventureRelaxing">
-                                    Relaxing
-                                </label>
-                            </div>
+                                    <div class="control">
+                                        <label class="radio">
+                                            <input type="radio" name="warmAnyweather" checked>
+                                            Warm Weather (Beaches)
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="warmAnyweather">
+                                            Any weather
+                                        </label>
+                                    </div>
 
-                            <div class="control">
-                                <label class="radio">
-                                    <input type="radio" name="guidedtoursSelf" checked>
-                                    Guided Tours
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="guidedtoursSelf">
-                                    Self-Guided Tours
-                                </label>
+                                    <br>
+
+                                    <div class="buttons">
+                                        <button class="button">Bon voyage!</button>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="column">
+
+                                    <div class="control">
+                                        <label class="radio">
+                                            <input type="radio" name="AdventureRelaxing" checked>
+                                            Adventure
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="AdventureRelaxing">
+                                            Relaxing
+                                        </label>
+                                    </div>
+
+                                    <div class="control">
+                                        <label class="radio">
+                                            <input type="radio" name="guidedtoursSelf" checked>
+                                            Guided Tours
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="guidedtoursSelf">
+                                            Self-Guided Tours
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </p>
                     </div>
@@ -167,72 +194,142 @@
                                 </a>
                             </div>
                         </div>
+
                     </div>
-
                 </div>
-
-
-                <div class="buttons">
-                    <button class="button">Bon voyage!</button>
-
-                </div>
-
         </section>
 
 
-        <section class="section reduce-padding-margin-to-5">
-            <div class="container">
-                <h1 class="title">Top 5 Trending Destinations 2020</h1>
-                <h2 class="subtitle">
-                    Top 5 Trending Destinations 2020
-                </h2>
+        <section class="section reduce-padding-margin-to-0">
+            <div class="container notification is-warning is-light">
+                <h1 class="title is-size-4">Top 5 Trending Destinations 2020</h1>
+                <div class="columns">
+                    <div class="column">
 
-                <div class="tile is-ancestor">
-                    <div class="tile is-vertical is-8">
-                        <div class="tile">
-                            <div class="tile is-parent is-vertical">
-                                <article class="tile is-child notification is-primary">
-                                    <p class="title">Vertical...</p>
-                                    <p class="subtitle">Top tile</p>
-                                </article>
-                                <article class="tile is-child notification is-warning">
-                                    <p class="title">...tiles</p>
-                                    <p class="subtitle">Bottom tile</p>
-                                </article>
-                            </div>
-                            <div class="tile is-parent">
-                                <article class="tile is-child notification is-info">
-                                    <p class="title">Middle tile</p>
-                                    <p class="subtitle">With an image</p>
-                                    <figure class="image is-4by3">
-                                        <img src="https://bulma.io/images/placeholders/640x480.png">
-                                    </figure>
-                                </article>
+                        <!-- --------------------- -->
+                        <div class="card">
+                            <!-- <div class="card-image"> -->
+                            <figure class="image is-4by3">
+                                <img src="images/Tokyo.jpg" alt="Tokyo">
+                            </figure>
+                            <!-- </div> -->
+                            <div class="card-content">
+                                <!-- <div class="media"> -->
+                                <!-- <div class="media-content"> -->
+                                <p class="title is-5">Tokyo, Japan</p>
+                                <!-- </div> -->
+                                <!-- </div> -->
                             </div>
                         </div>
-                        <div class="tile is-parent">
-                            <article class="tile is-child notification is-danger">
-                                <p class="title">Wide tile</p>
-                                <p class="subtitle">Aligned with the right tile</p>
-                                <div class="content">
-                                    <!-- Content -->
-                                </div>
-                            </article>
-                        </div>
+
+                        <!-- --------------------- -->
                     </div>
-                    <div class="tile is-parent">
-                        <article class="tile is-child notification is-success">
-                            <div class="content">
-                                <p class="title">Tall tile</p>
-                                <p class="subtitle">With even more content</p>
-                                <div class="content">
-                                    <!-- Content -->
-                                </div>
+                    <div class="column">
+
+                        <div class="card">
+                            <figure class="image is-4by3">
+                                <img src="images/shanghai.jpg" alt="shanghai">
+                            </figure>
+                            <div class="card-content">
+                                <p class="title is-5">Shanghai, China</p>
                             </div>
-                        </article>
+                        </div>
+
+                    </div>
+                    <div class="column">
+
+                        <div class="card">
+                            <figure class="image is-4by3">
+                                <img src="images/Romania.jpg" alt="Romania">
+                            </figure>
+                            <div class="card-content">
+                                <p class="title is-5">Brașov, Romania</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="column">
+
+                        <div class="card">
+                            <figure class="image is-4by3">
+                                <img src="images/Slovenia.jpg" alt="Slovenia">
+                            </figure>
+                            <div class="card-content">
+                                <p class="title is-5">Ljubljana, Slovenia</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="column">
+
+                        <div class="card">
+                            <figure class="image is-4by3">
+                                <img src="images/buriramthailand.jpg" alt="Thailand">
+                            </figure>
+                            <div class="card-content">
+                                <p class="title is-5">Buriram, Thailand</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+
+
+        <section class="section">
+            <div class="container">
+                <h1 class="title"></h1>
+
+                <div class="columns">
+                    <div class="column">
+
+                        <div class="box map">
+
+                        </div>
+
+                    </div>
+                    <div class="column">
+
+                        <div class="box weather">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section">
+            <div class="container">
+                <h1 class="title"></h1>
+
+                <div class="columns">
+                    <div class="column">
+                        <div class="box attractions">
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="box events">
+                            <p class="title is-5">Top events</p>
+                            <!-- Events will get Dumped Here  -->
+                            <div class="columns">
+                                <div class="column is-one-quarter">
+                                    <div id="event-list-image"></div>
+                                </div>
+                                <div class="column is-one-quarter">
+                                    <div id="event-list-dt"></div>
+                                </div>
+                                <div class="column is-one-half">
+                                    <div id="event-list-text"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -242,7 +339,14 @@
                 <div class="columns">
                     <div class="column">
                         <p>
-                            <strong>Global Sites</strong>
+                            <strong>Global Sites:</strong>
+
+                            <span class="icon" style="display:flexbox;">
+                                <img src="images/iconfinder_Germany_flat_92094.png" class="is-24x24">
+                                <img src="images/iconfinder_United-Kingdom_flat_92402.png" class="is-24x24">
+                                <img src="images/iconfinder_United-States_flat_92406.png" class="is-24x24">
+                            </span>
+
                             <p>&#169; 2020 JSON Jaguars, All rights reserved</p>
                         </p>
                     </div>
@@ -256,6 +360,71 @@
             </div>
         </footer>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        var city = "London";
+        console.log(city);
+
+        displayEventInfo(city);
+
+
+        // displayEventInfo function re-renders the HTML to display the appropriate content
+        function displayEventInfo(city) {
+
+            var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=QW0RmyVGGiG8UHcQOKsmezCeVAoqIaPU&city=" + city;
+
+            // Creating an AJAX call for the specific event button being clicked
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log("inside then function");
+
+                console.log(response);
+
+                for (i = 0; i < 5; i++) {
+
+                    console.log("inside then for loop");
+
+                    // Creating a div to hold the event
+                   var eventDiv_img = $("<div class='event'>");
+                   var eventDiv_dt = $("<div class='event'>");
+                    var eventDiv = $("<div class='event'>");
+
+                    // Displaying the image
+                    var p_image = $("<img>").attr('src', response._embedded.events[i].images[0].url);
+                    p_image.attr("width", "50px%");
+                    eventDiv_img.append(p_image);
+
+                    // Displaying the date
+                    var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
+                    eventDiv_dt.append(p_date);
+
+                    // Displaying the event
+                    var p_event = $("<a>").text(response._embedded.events[i].name);
+                    p_event.attr('href',response._embedded.events[i].url);
+                    eventDiv.append(p_event);
+
+                    // Displaying a blank line
+                    var pFinal = $("<BR>");
+                    eventDiv.append(pFinal);
+
+                    console.log(eventDiv);
+                    // Adding event to div
+                    $("#event-list-image").prepend(eventDiv_img);
+                    $("#event-list-dt").prepend(eventDiv_dt);
+                    $("#event-list-text").prepend(eventDiv);
+                }
+            });
+
+        }
+
+
+    </script>
+
+
 </body>
 
 </html>

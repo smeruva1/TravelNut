@@ -58,14 +58,14 @@
             //     method: "GET"
             // }).then(function (response) {
             //     console.log(response);
-            
+
             // });
 
 
 
             //var movie = $(this).attr("event-name");
             //var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=QW0RmyVGGiG8UHcQOKsmezCeVAoqIaPU&locale=en-us&dmaId=324";
-            var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=QW0RmyVGGiG8UHcQOKsmezCeVAoqIaPU&city="+city;
+            var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=QW0RmyVGGiG8UHcQOKsmezCeVAoqIaPU&city=" + city;
 
             // Creating an AJAX call for the specific event button being clicked
             $.ajax({
@@ -75,73 +75,30 @@
                 console.log(response);
 
 
-                for (i=0; i< 5; i++) {
-                // Creating a div to hold the event
-                var eventDiv = $("<div class='event'>");
+                for (i = 0; i < 5; i++) {
 
-              //   console.log("1"+response._embedded);
-              //  console.log(response._embedded);
-                
-                // console.log("2"+response._embedded._embedded);
-                // console.log("2"+JSON.parse(response._embedded._embedded));
+                    // Creating a div to hold the event
+                    var eventDiv = $("<div class='event'>");
 
-                //console.log(response._embedded.events);
-                
-                // console.log("4"+response._embedded._embedded.event[0].name);
+                    // Displaying the image
+                    var p_image = $("<img>").attr('src', response._embedded.events[i].images[0].url);
+                    p_image.attr("width", "50px%");
+                    eventDiv.append(p_image);
 
+                    // Displaying the date
+                    var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
+                    eventDiv.append(p_date);
 
-                // Creating an element to have the rating displayed
-                var pZero = $("<p>").text("Event");
-                    //console.log(pZero);
+                    // Displaying the event
+                    var p_event = $("<p>").text(response._embedded.events[i].name);
+                    eventDiv.append(p_event);
 
-                // Displaying the rating
-                eventDiv.append(pZero);
+                    // Displaying a blank line
+                    var pFinal = $("<BR>");
+                    eventDiv.append(pFinal);
 
-                var pOne = $("<p>").text("          "+ response._embedded.events[i].name);
-                    //console.log(pOne);
-
-                // Displaying the rating
-                eventDiv.append(pOne);
-
-                var pTwo = $("<p>").text("          "+ response._embedded.events[i].dates.start.localDate);
-                    //console.log(pTwo);
-
-                // Displaying the rating
-                eventDiv.append(pTwo);
-
-                var pFinal = $("<BR>");
-                     // Displaying the rating
-                eventDiv.append(pFinal);
-
-//   // Storing the release year
-                //   var released = response.Released;
-
-                //   // Creating an element to hold the release year
-                //   var pTwo = $("<p>").text("Released: " + released);
-
-                //   // Displaying the release year
-                //   movieDiv.append(pTwo);
-
-                //   // Storing the plot
-                //   var plot = response.Plot;
-
-                //   // Creating an element to hold the plot
-                //   var pThree = $("<p>").text("Plot: " + plot);
-
-                //   // Appending the plot
-                //   movieDiv.append(pThree);
-
-                //   // Retrieving the URL for the image
-                //   var imgURL = response.Poster;
-
-                //   // Creating an element to hold the image
-                //   var image = $("<img>").attr("src", imgURL);
-
-                //   // Appending the image
-                //   movieDiv.append(image);
-
-                // Putting the entire movie above the previous movies
-                $("#event-list-group").prepend(eventDiv);
+                    // Adding event to div
+                    $("#event-list-group").prepend(eventDiv);
                 }
             });
 
