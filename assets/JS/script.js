@@ -22,12 +22,12 @@ $.ajax({
   console.log(eventRes);
 }); */
 
-var td = $(".td");
+/* var td = $(".td");
 var submitBtn = $("button");
 var cityArr = [];
 var currentDay = moment().subtract(10, 'days').calendar();
 
-
+ */
 function accuweatherURL(key, value) {
   var apikey = "?apikey=VWYubnkyp0mi8ho0Mo8xO9DHULE781DY";
   var baseURL = "";
@@ -63,8 +63,9 @@ $("#searchBtn").on("click", function () {
           console.log("ForecastResponse: ", forecastResponse)
 
           $("#city").text(keyResponse[0].LocalizedName)
-          $("#date").text(moment(forecastResponse.Headline.EffectiveDate).format("MM/DD/YYYY"))
+          $("#date").text(moment(forecastResponse.DailyForecasts[0].Date).format("MM/DD/YYYY"))
           $("#temperature").text(forecastResponse.DailyForecasts[0].Temperature.Minimum.Value)
+          $("#temp").text(forecastResponse.DailyForecasts[0].Temperature.Maximum.Value)
 
 
 
@@ -75,71 +76,4 @@ $("#searchBtn").on("click", function () {
 
 
 
-/* 
-  $.ajax({
-    url: queryUrl,
-    method: "GET"
-  })
-  .then(function (weatherRes) {
-    console.log(weatherRes);
-    var coordinates=weatherRes.coord
-   
-    ;
-    $(".City").text(weatherRes.name + " " + currentDay);
-    $(".Temperature").text(weatherRes.main.temp);
-    $(".Humidity").text(weatherRes.main.humidity);
-    $(".Wind-Speed").text(weatherRes.wind.speed);
-    // currentDay.text(day.format('dddd, MMMM Do YYYY'));
- */
 
-/* 
-cityArr.push(city)
-console.log(cityArr) */
-/*  weatherSearch (city,country) */
-/* 
-    $('#search-input').val("");
-    $('#user-input').empty()
-
-    cityArr.forEach(function (city) {
-      $("<button>")
-        .addClass('btn btn-outline-success city-btn btn-group')
-        .text(city)
-        .attr("weather-data", city)
-        .appendTo("#user-input");
-    });
-    function fiveDayForecast(city) {
-      var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + API_KEY;
-      console.log(forecastUrl);
-      
-        $.ajax({
-        url:forecastUrl,
-        method: "GET"
-      })
-      .then(function (forecastRes) {
-        console.log("Forecast: ", forecastRes);
-    
-        var fiveDayList = forecastRes.list.filter(function(day) {
-          if (day.dt_txt.includes("12:00")) {
-            console.log(day);
-            return true;
-          }
-          return false;
-        });
-        
-        fiveDayList.forEach(function(day) {
-          console.log(day);
-        $('.five-day').append(`
-        <div class="col-md-2 col-12">
-          <div class="card">
-            <div class="card-body bg-primary">
-              <h6>${day.dt_txt}</h6>
-              <p>Temp: ${day.main.temp} F</p>
-              <p>Humidity: ${day.main.humidity}%</p>
-            </div>
-          </div>
-        </div>  
-        `)
-          
-        });
-      })
-    } */
