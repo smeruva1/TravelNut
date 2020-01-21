@@ -123,22 +123,22 @@
 
                                     <div class="control">
                                         <label class="radio">
-                                            <input type="radio" name="domesticInternational" checked>
+                                            <input type="radio" name="domesticInternational" value="Domestic">
                                             Domestic
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" name="domesticInternational">
+                                            <input type="radio" name="domesticInternational" value="International">
                                             International
                                         </label>
                                     </div>
 
                                     <div class="control">
                                         <label class="radio">
-                                            <input type="radio" name="warmAnyweather" checked>
-                                            Warm Weather (Beaches)
+                                            <input type="radio" name="weather" value="WarmWeather">
+                                            Warm Weather
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" name="warmAnyweather">
+                                            <input type="radio" name="weather" value="AnyWeather">
                                             Any weather
                                         </label>
                                     </div>
@@ -146,7 +146,7 @@
                                     <br>
 
                                     <div class="buttons">
-                                        <button class="button">Bon voyage!</button>
+                                        <button class="button" id="search-city-radio">Bon voyage!</button>
                                     </div>
 
                                 </div>
@@ -186,10 +186,10 @@
 
                         <div class="field  has-addons has-addons-centered">
                             <div class="control" style="text-align:center;">
-                                <input class="input" type="text" placeholder="Search City">
+                                <input class="input" id="search-input" type="text" placeholder="Search City">
                             </div>
                             <div class="control">
-                                <a class="button is-info">
+                                <a class="button is-info" id="add-city">
                                     Search
                                 </a>
                             </div>
@@ -200,7 +200,7 @@
         </section>
 
 
-        <section class="section reduce-padding-margin-to-0">
+        <section class="section reduce-padding-margin-to-0" id="Trending">
             <div class="container notification is-warning is-light">
                 <h1 class="title is-size-4">Top 5 Trending Destinations 2020</h1>
                 <div class="columns">
@@ -275,6 +275,55 @@
                 </div>
 
             </div>
+        </section>
+
+        <section class="section reduce-padding-margin-to-0" id="Suggestions">
+            <div class="container notification is-info is-light">
+                <h1 class="title is-size-4">Destination Suggestions</h1>
+                <div class="columns">
+                    <div class="column">
+
+                        <!-- --------------------- -->
+                        <div class="card">
+                            <!-- <div class="card-image"> -->
+                            <figure class="image is-4by3" id="first-suggestion_img">
+                                <!-- <img src="images/Tokyo.jpg" alt="Tokyo"> -->
+                            </figure>
+                            <!-- </div> -->
+                            <div class="card-content" id="first-suggestion">
+                                <!-- <div class="media"> -->
+                                <!-- <div class="media-content"> -->
+                                <!-- <p class="title is-5">Tokyo, Japan</p> -->
+                                <!-- </div> -->
+                                <!-- </div> -->
+                            </div>
+                        </div>
+
+                        <!-- --------------------- -->
+                    </div>
+                    <div class="column">
+
+                        <div class="card">
+                            <figure class="image is-4by3" id="second-suggestion_img">
+                            </figure>
+                            <div class="card-content" id="second-suggestion">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="column">
+
+                        <div class="card">
+                            <figure class="image is-4by3" id="third-suggestion_img">
+                            </figure>
+                            <div class="card-content" id="third-suggestion">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
         </section>
 
 
@@ -364,16 +413,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
 
-        var city = "London";
-        console.log(city);
 
-        displayEventInfo(city);
+        var Top5TrendingDestination = [["Tokyou, Japan", "images/Tokyo.jpg"], ["Shanghai, China", "images/shanghai.jpg"], ["Brașov, Romania", "images/Romania.jpg"], ["Ljubljana, slovenia", "images/Slovenia.jpg"], ["Buriram, Thailand", "images/buriramthailand.jpg"]];
 
+        var Top3DomesticDestination = [["Portland, ME", "images/Maine.jpg"], ["Yosemite, CA", "images/YosemiteCA.jpg"], ["SanAntonio, TX", "images/SanAntino.jpg"]];
+        var Top3DomesticBeaches = [["Laguna CA", "images/LagunaCA.jpg"], ["Maui, HI", "images/Maui.jpg"], ["Myrtle, NC", "images/Myrtle.jpg"]];
+        var Top3InternationalDestination = [["Budapest, Hungary", "images/Hungary.jpg"], ["Barcelona, Spain", "images/spain.jpg"], ["Yogyakarta, Indonesia", "images/Indonesia.jpg"]];
+        var Top3InternationalBeaches = [["Ibiza, Spain", "images/Ibiza_spain.jpg"], ["Maldives", "images/Maldives.jpg"], ["Railay Beach, thailand", "images/Railay_beach_Thailand.jpg"]];
+
+
+        // var city = "London";
+        // console.log(city);
+
+        // displayEventInfo(city);
+
+        $("#Trending").show();
+        $("#Suggestions").hide();
 
         // displayEventInfo function re-renders the HTML to display the appropriate content
         function displayEventInfo(city) {
+            $("#event-list-image").empty();
+            $("#event-list-dt").empty();
+            $("#event-list-text").empty();
 
-            var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=QW0RmyVGGiG8UHcQOKsmezCeVAoqIaPU&city=" + city;
+
+            var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=QW0RmyVGGiG8UHcQOKsmezCeVAoqIaPU&classificationName=music&city=" + city;
 
             // Creating an AJAX call for the specific event button being clicked
             $.ajax({
@@ -389,8 +453,8 @@
                     console.log("inside then for loop");
 
                     // Creating a div to hold the event
-                   var eventDiv_img = $("<div class='event'>");
-                   var eventDiv_dt = $("<div class='event'>");
+                    var eventDiv_img = $("<div class='event'>");
+                    var eventDiv_dt = $("<div class='event'>");
                     var eventDiv = $("<div class='event'>");
 
                     // Displaying the image
@@ -404,7 +468,7 @@
 
                     // Displaying the event
                     var p_event = $("<a>").text(response._embedded.events[i].name);
-                    p_event.attr('href',response._embedded.events[i].url);
+                    p_event.attr('href', response._embedded.events[i].url);
                     eventDiv.append(p_event);
 
                     // Displaying a blank line
@@ -420,6 +484,131 @@
             });
 
         }
+
+        $("#add-city").on("click", function (event) {
+            event.preventDefault();
+
+            //var restoreCity = JSON.parse(localStorage.getItem('cityArray'));
+
+            // This line grabs the input from the textbox
+            var city = $("#search-input").val().trim();
+
+            // Adding movie from the textbox to our array
+            //restoreCity.push(city);
+
+            //localStorage.setItem('cityArray', JSON.stringify(restoreCity));
+
+            // Calling renderButtons which handles the processing of our City array
+            displayEventInfo(city);
+        });
+
+        $("#search-city-radio").on("click", function (event) {
+            event.preventDefault();
+
+            $("#first-suggestion").empty();
+            $("#first-suggestion_img").empty();
+            $("#second-suggestion").empty();
+            $("#second-suggestion_img").empty();
+            $("#third-suggestion").empty();
+            $("#third-suggestion_img").empty();
+
+            //var restoreCity = JSON.parse(localStorage.getItem('cityArray'));
+
+            // This line grabs the input from the textbox
+            var radioValDomesticInternational = $("input[name='domesticInternational']:checked").val();
+            console.log("--------before printing radio button--------");
+            console.log(radioValDomesticInternational);
+            console.log("--------after printing radio button--------");
+
+            var radioValWeather = $("input[name='weather']:checked").val();
+            console.log("--------before printing radio button--------");
+            console.log(radioValWeather);
+            console.log("--------after printing radio button--------");
+
+            if (radioValDomesticInternational == "Domestic" && radioValWeather == "WarmWeather") {
+                console.log(Top3DomesticBeaches);
+
+                var p_firstsuggestion = $("<p>").text(Top3DomesticBeaches[0][0]);
+                $("#first-suggestion").append(p_firstsuggestion);
+                var p_firstsuggestion_img = $("<img>").attr("src", Top3DomesticBeaches[0][1]);
+                $("#first-suggestion_img").append(p_firstsuggestion_img);
+
+                var p_secondsuggestion = $("<p>").text(Top3DomesticBeaches[1][0]);
+                $("#second-suggestion").append(p_secondsuggestion);
+                var p_secondsuggestion_img = $("<img>").attr("src", Top3DomesticBeaches[1][1]);
+                $("#second-suggestion_img").append(p_secondsuggestion_img);
+
+                var p_thirdsuggestion = $("<p>").text(Top3DomesticBeaches[2][0]);
+                $("#third-suggestion").append(p_thirdsuggestion);
+                var p_thirdsuggestion_img = $("<img>").attr("src", Top3DomesticBeaches[2][1]);
+                $("#third-suggestion_img").append(p_thirdsuggestion_img);
+
+
+            } else if (radioValDomesticInternational == "Domestic" && radioValWeather == "AnyWeather") {
+                console.log(Top3DomesticDestination);
+
+                var p_firstsuggestion = $("<p>").text(Top3DomesticDestination[0][0]);
+                $("#first-suggestion").append(p_firstsuggestion);
+                var p_firstsuggestion_img = $("<img>").attr("src", Top3DomesticDestination[0][1]);
+                $("#first-suggestion_img").append(p_firstsuggestion_img);
+
+                var p_secondsuggestion = $("<p>").text(Top3DomesticDestination[1][0]);
+                $("#second-suggestion").append(p_secondsuggestion);
+                var p_secondsuggestion_img = $("<img>").attr("src", Top3DomesticDestination[1][1]);
+                $("#second-suggestion_img").append(p_secondsuggestion_img);
+
+                var p_thirdsuggestion = $("<p>").text(Top3DomesticDestination[2][0]);
+                $("#third-suggestion").append(p_thirdsuggestion);
+                var p_thirdsuggestion_img = $("<img>").attr("src", Top3DomesticDestination[2][1]);
+                $("#third-suggestion_img").append(p_thirdsuggestion_img);
+
+            } else if (radioValDomesticInternational == "International" && radioValWeather == "WarmWeather") {
+                console.log(Top3InternationalBeaches);
+
+                var p_firstsuggestion = $("<p>").text(Top3InternationalBeaches[0][0]);
+                $("#first-suggestion").append(p_firstsuggestion);
+                var p_firstsuggestion_img = $("<img>").attr("src", Top3InternationalBeaches[0][1]);
+                $("#first-suggestion_img").append(p_firstsuggestion_img);
+
+                var p_secondsuggestion = $("<p>").text(Top3InternationalBeaches[1][0]);
+                $("#second-suggestion").append(p_secondsuggestion);
+                var p_secondsuggestion_img = $("<img>").attr("src", Top3InternationalBeaches[1][1]);
+                $("#second-suggestion_img").append(p_secondsuggestion_img);
+
+                var p_thirdsuggestion = $("<p>").text(Top3InternationalBeaches[2][0]);
+                $("#third-suggestion").append(p_thirdsuggestion);
+                var p_thirdsuggestion_img = $("<img>").attr("src", Top3InternationalBeaches[2][1]);
+                $("#third-suggestion_img").append(p_thirdsuggestion_img);
+
+            } else if (radioValDomesticInternational == "International" && radioValWeather == "AnyWeather") {
+                console.log(Top3InternationalDestination);
+
+                var p_firstsuggestion = $("<p>").text(Top3InternationalDestination[0][0]);
+                $("#first-suggestion").append(p_firstsuggestion);
+                var p_firstsuggestion_img = $("<img>").attr("src", Top3InternationalDestination[0][1]);
+                $("#first-suggestion_img").append(p_firstsuggestion_img);
+
+                var p_secondsuggestion = $("<p>").text(Top3InternationalDestination[1][0]);
+                $("#second-suggestion").append(p_secondsuggestion);
+                var p_secondsuggestion_img = $("<img>").attr("src", Top3InternationalDestination[1][1]);
+                $("#second-suggestion_img").append(p_secondsuggestion_img);
+
+                var p_thirdsuggestion = $("<p>").text(Top3InternationalDestination[2][0]);
+                $("#third-suggestion").append(p_thirdsuggestion);
+                var p_thirdsuggestion_img = $("<img>").attr("src", Top3InternationalDestination[2][1]);
+                $("#third-suggestion_img").append(p_thirdsuggestion_img);
+
+            }
+
+            var city = "London";
+            console.log(city);
+
+
+            $("#Trending").hide();
+            $("#Suggestions").show();
+            displayEventInfo(city);
+
+        });
 
 
     </script>
