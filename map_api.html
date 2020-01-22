@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <title>Local search app</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script
+    src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet'
+    href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css'
+    type='text/css' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .mapboxgl-ctrl-geocoder--input {
+       top : 100px;
+       
+    }
+
+    #map {
+      position: absolute;;
+      top: 200px;
+      bottom: 200px;
+      left: 400px;
+      width: 50%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+
+  <div id='map'></div>
+  <div class="field has-addons">
+    <div class="control">
+      <input class="input" type="text" placeholder="Search">
+    </div>
+    <div class="control">
+      <a class="button is-info">
+        Search
+      </a>
+    </div>
+  </div>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoianVpMjciLCJhIjoiY2s1ZW9vbnp6MjlyOTNvbjA4d2owdmY1biJ9.rEV2FP60iVG5rSJ5kghC8g';
+    var map = new mapboxgl.Map({
+      container: 'map', // Container ID
+      style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
+      center: [-122.25948, 37.87221], // Starting position [lng, lat]
+      zoom: 12, // Starting zoom level
+    });
+    var marker = new mapboxgl.Marker() // initialize a new marker
+      .setLngLat([-122.25948, 37.87221]) // Marker [lng, lat] coordinates
+      .addTo(map); // Add the marker to the map
+    var geocoder = new MapboxGeocoder({ // Initialize the geocoder
+      accessToken: mapboxgl.accessToken, // Set the access token
+      mapboxgl: mapboxgl, // Set the mapbox-gl instance
+      marker: false, // Do not use the default marker style
+    });
+
+    // when you get search results from mapbox, send an object with all pertinent data
+    geocoder.on('result', function(res) {
+      console.log(res);
+      var search;
+      search=res.place_name;
+
+      // send search name to another function
+    })
+
+    // Add the geocoder to the map
+    map.addControl(geocoder);
+  </script>
+</body>
+
+</html>

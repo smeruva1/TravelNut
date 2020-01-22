@@ -1,13 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Travel Nut</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Travel Nut</title>
+  
+
 </head>
-<h1>testing</h1>
+
 <body>
-    
+  <center>
+    <hr />
+    <form id="search-form">
+      <select id="mytext">
+        <option>select destination</option>
+        <option>london</option>
+        <option>new york</option>
+        <option>nj</option>
+        <option>dallas</option>
+        <option>a</option>
+        <option>B</option> 
+        <option>C</option>
+        <option>d</option>
+      </select>
+      <button type="submit" value="submit">search</button>
+    </form>
+  </center>
+  <center>
+    <b><span id="result"></span></b>
+  </center>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    var selecttext;
+    var cityArr = [];
+    var selecteddestination = $("#mytext");
+
+    function passval(event) {
+      event.preventDefault();
+      selecttext = document.getElementById("mytext").value;
+      
+      // add selecttext value to searchHistory array and save to localStorage
+      var searchHistory = localStorage.getItem('searchHistory') ? JSON.parse(localStorage.getItem('searchHistory')) : [];
+
+      // don't push value in if it's already in list
+      if (!searchHistory.includes(selecttext)) {
+        searchHistory.push(selecttext);
+      }
+
+      localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+      printSearchList();
+      
+    }
+         // printSearchList();
+    function printSearchList() {
+      // get elements from local storage
+      var searchHistory = localStorage.getItem('searchHistory') ? JSON.parse(localStorage.getItem('searchHistory')) : [];
+
+      $('#results').empty();
+     
+      // loop through searchHistory and print each one to results section
+      var text="";
+      for(var i=0;i<searchHistory.length;i++)
+      {
+        if(searchHistory.length>5)
+      {
+       var searchHistorylenght=searchHistory.lenght;
+       var l=searchHistorylenght - 5;
+      // searchHistory.splice(0,l);
+
+       searchHistory.shift()
+       console.log(searchHistory);
+      }
+         text+=searchHistory[i]+"<br>";
+      }
+      document.getElementById("result").innerHTML = text;
+    }
+
+    // document.getElementById("result").innerHTML = localStorage.getItem("ddvalue");
+    // cityArr.push(selecttext);
+    // cityArr.forEach(function(selecttext){
+    //  var searchel= $("<div>");
+    //  searchel.text(selecttext);
+    //  selecteddestination.append(searchel);
+
+    $("#search-form").on('submit', passval)
+
+  // });
+
+
+
+
+
+
+
+  </script>
 </body>
+
+
+
+
 </html>
