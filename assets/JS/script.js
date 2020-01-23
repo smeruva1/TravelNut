@@ -1,11 +1,11 @@
-var myDiv = $("#myDiv");
+/* var myDiv = $("#myDiv");
 var myPage = $("#myPage")
 
 setTimeout(function () {
   myDiv.css('display', 'none')
   myPage.removeClass("hide")
 }, 2 * 1000);
-
+ */
 
 /* var apiKey = "EoaHroi7P4OkRghUpmF59aH3x9Cgg11C";
 
@@ -28,6 +28,7 @@ var cityArr = [];
 var currentDay = moment().subtract(10, 'days').calendar();
 
  */
+
 function accuweatherURL(key, value) {
   var apikey = "?apikey=VWYubnkyp0mi8ho0Mo8xO9DHULE781DY";
   var baseURL = "";
@@ -62,18 +63,30 @@ $("#searchBtn").on("click", function () {
 
           console.log("ForecastResponse: ", forecastResponse)
 
+          var mappedResponse = forecastResponse.DailyForecasts.map(function(forecast) {
+            if (forecast.Day.Icon < 10) {
+              forecast.Day.Icon = `0${forecast.Day.Icon}`
+            }
+            
+            if (forecast.Night.Icon < 10) {
+              forecast.Night.Icon = `0${forecast.Night.Icon}`
+            }
+
+            return forecast
+          })
+
+          console.log(mappedResponse)
+
           $("#city").text(keyResponse[0].LocalizedName)
           $("#date").text(moment(forecastResponse.DailyForecasts[0].Date).format("MM/DD/YYYY"))
           $("#temperature").text(forecastResponse.DailyForecasts[0].Temperature.Minimum.Value)
           $("#temp").text(forecastResponse.DailyForecasts[0].Temperature.Maximum.Value)
+          $(".icon").empty()
+          var icon = $("<img>").attr("src", "https://api.accuweather.com/developers/Media/Default/WeatherIcons/" + mappedResponse[0].Day.Icon + "-s.png");
+          console.log(icon);
+          $(".icon").append(icon);
 
+        });
 
-
-
-        })
-    })
-})
-
-
-
-
+    });
+});
