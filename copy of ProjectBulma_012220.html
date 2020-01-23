@@ -9,14 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin="" />
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-        crossorigin=""></script>
-
 </head>
 
 <style>
@@ -31,13 +23,6 @@
 
     /* .logo {
         opacity: 0.5;
-    } */
-    /* .vertical-center {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
     } */
 
     .reduce-padding-margin-to-5 {
@@ -76,38 +61,27 @@
         /* padding: 10%; */
         padding: 10px;
     }
-
-    #travellogo {
-        padding-left: 10px;
-        padding-top: 10px;
-    }
-
-    .travelSlogan {
-        padding-left: 10px;
-        /* padding-top: 10px; */
-    }
-
-    #mapid {
-        height: 180px;
-    }
 </style>
 
 <body>
     <div class="container">
-        <!--Header section-->
+
+        <!-- <section class="hero is-fullheight">
+       
+        </section> -->
+
         <section class="hero is-primary reduce-padding-margin-to-0">
-            <!-- <div class="hero-body"> -->
-            <div>
+            <div class="hero-body">
                 <div class="columns">
                     <div class="column">
 
                         <figure class="image">
-                            <img src="images/TravelNutLogo2.png" class="logo" id="travellogo" style="max-width:100px;">
+                            <img src="images/TravelNutLogo2.png" class="logo" style="max-width:150px;">
                         </figure>
-                        <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan">
+                        <h2 class="is-italic has-text-weight-bold has-text-primary">
                             Adventure awaits,
                         </h2>
-                        <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan">
+                        <h2 class="is-italic has-text-weight-bold has-text-primary">
                             Go find it!
                         </h2>
                     </div>
@@ -134,7 +108,7 @@
             </div>
         </section>
 
-        <!--Search section-->
+
         <section class="section reduce-padding-margin-to-0">
             <div class="notification is-primary">
                 <div class="columns">
@@ -225,64 +199,169 @@
                 </div>
         </section>
 
-        <!--Trending section-->
+
         <section class="section reduce-padding-margin-to-0" id="Trending">
             <div class="container notification is-warning is-light">
                 <h1 class="title is-size-4">Top 5 Trending Destinations 2020</h1>
                 <div class="columns" id="trendingDiv">
+
+<!--                     <div class="column">
+                    
+                        <div class="card">
+                    
+                            <figure class="image is-4by3">
+                                <img src="images/Tokyo.jpg" alt="Tokyo">
+                            </figure>
+                    
+                            <div class="card-content">
+                                <p class="title is-5">Tokyo, Japan</p>
+                            </div>
+                        </div>
+
+     
+                    </div>
+                    <div class="column">
+
+                        <div class="card">
+                            <figure class="image is-4by3">
+                                <img src="images/shanghai.jpg" alt="shanghai">
+                            </figure>
+                            <div class="card-content">
+                                <p class="title is-5">Shanghai, China</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="column">
+
+                        <div class="card">
+                            <figure class="image is-4by3">
+                                <img src="images/Romania.jpg" alt="Romania">
+                            </figure>
+                            <div class="card-content">
+                                <p class="title is-5">Brașov, Romania</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="column">
+
+                        <div class="card">
+                            <figure class="image is-4by3">
+                                <img src="images/Slovenia.jpg" alt="Slovenia">
+                            </figure>
+                            <div class="card-content">
+                                <p class="title is-5">Ljubljana, Slovenia</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="column">
+
+                        <div class="card">
+                            <figure class="image is-4by3">
+                                <img src="images/buriramthailand.jpg" alt="Thailand">
+                            </figure>
+                            <div class="card-content">
+                                <p class="title is-5">Buriram, Thailand</p>
+                            </div>
+                        </div>
+
+                    </div>  -->
                 </div>
+
             </div>
         </section>
 
-        <!--Suggestion section-->
         <section class="section reduce-padding-margin-to-0" id="Suggestions">
             <div class="container notification is-info is-light">
                 <h1 class="title is-size-4">Destination Suggestions</h1>
-                <div class="columns" id="suggestionsDiv">
+                <div class="columns">
+                    <div class="column">
+
+                        <!-- --------------------- -->
+                        <div class="card" id="first-card">
+                            <!-- <div class="card-image"> -->
+                            <figure class="image is-4by3" id="first-suggestion_img">
+                                <!-- <img src="images/Tokyo.jpg" alt="Tokyo"> -->
+                            </figure>
+                            <!-- </div> -->
+                            <div class="card-content" id="first-suggestion">
+                                <!-- <div class="media"> -->
+                                <!-- <div class="media-content"> -->
+                                <!-- <p class="title is-5">Tokyo, Japan</p> -->
+                                <!-- </div> -->
+                                <!-- </div> -->
+                            </div>
+                        </div>
+
+                        <!-- --------------------- -->
+                    </div>
+                    <div class="column">
+
+                        <div class="card">
+                            <figure class="image is-4by3" id="second-suggestion_img">
+                            </figure>
+                            <div class="card-content" id="second-suggestion">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="column">
+
+                        <div class="card">
+                            <figure class="image is-4by3" id="third-suggestion_img">
+                            </figure>
+                            <div class="card-content" id="third-suggestion">
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div>
         </section>
 
-        <!--Results section Map & Weather-->
+
+
         <section class="section">
             <div class="container">
                 <h1 class="title"></h1>
-                <!--Result section row 1-->
+
                 <div class="columns">
-                    <!--Map Box-->
                     <div class="column">
-                        <div class="box map" id="mapid">
+
+                        <div class="box map">
+
                         </div>
+
                     </div>
-                    <!--Weather Box-->
                     <div class="column">
+
                         <div class="box weather">
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!--Results section Attractions & events-->
+
         <section class="section">
             <div class="container">
                 <h1 class="title"></h1>
 
-                <!--Result section row 2-->
                 <div class="columns">
-                    <!--Attractions Box-->
                     <div class="column">
                         <div class="box attractions">
                         </div>
                     </div>
-                    <!--Events Box-->
+
                     <div class="column">
                         <div class="box events">
                             <p class="title is-5">Top events</p>
-                            <div id="topEvents">
-
-                            </div>
                             <!-- Events will get Dumped Here  -->
-                            <!-- <div class="columns">
+                            <div class="columns">
                                 <div class="column is-one-quarter">
                                     <div id="event-list-image"></div>
                                 </div>
@@ -292,14 +371,14 @@
                                 <div class="column is-one-half">
                                     <div id="event-list-text"></div>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!--Footer section Box-->
+
         <footer class="footer reduce-padding-margin-to-5">
             <div class="content">
                 <div class="columns">
@@ -328,20 +407,17 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript">
 
 
         // var Top5TrendingDestination = [["Tokyo, Japan", "images/Tokyo.jpg"], ["Shanghai, China", "images/shanghai.jpg"], ["Brașov, Romania", "images/Romania.jpg"], ["Ljubljana, slovenia", "images/Slovenia.jpg"], ["Buriram, Thailand", "images/buriramthailand.jpg"]];
 
-        //var Top5TrendingDestination = [["London", "images/SanAntino.jpg", "40.730610", "-73.935242"]]
+        var Top5TrendingDestination = [["Tokyo", "images/Tokyo.jpg"], ["Shanghai", "images/shanghai.jpg"], ["Brașov", "images/Romania.jpg"], ["Ljubljana", "images/Slovenia.jpg"], ["Buriram", "images/buriramthailand.jpg"]];
 
-        var Top5TrendingDestination = [["London", "images/Tokyo.jpg"], ["Shanghai", "images/shanghai.jpg"], ["Romania", "images/Romania.jpg"], ["slovenia", "images/Slovenia.jpg"], ["Thailand", "images/buriramthailand.jpg"]];
-
-        var Top3DomesticDestination = [["Portland", "images/Maine.jpg"], ["Yosemite", "images/YosemiteCA.jpg"], ["SanAntonio", "images/SanAntino.jpg"]];
-        var Top3DomesticBeaches = [["Laguna", "images/LagunaCA.jpg"], ["Maui", "images/Maui.jpg"], ["Myrtle", "images/Myrtle.jpg"]];
-        var Top3InternationalDestination = [["Budapest", "images/Hungary.jpg"], ["Barcelona", "images/spain.jpg"], ["Yogyakarta", "images/Indonesia.jpg"]];
-        var Top3InternationalBeaches = [["Ibiza", "images/Ibiza_spain.jpg"], ["Maldives", "images/Maldives.jpg"], ["Railay", "images/Railay_beach_Thailand.jpg"]];
+        var Top3DomesticDestination = [["Portland, ME", "images/Maine.jpg"], ["Yosemite, CA", "images/YosemiteCA.jpg"], ["SanAntonio, TX", "images/SanAntino.jpg"]];
+        var Top3DomesticBeaches = [["Laguna CA", "images/LagunaCA.jpg"], ["Maui, HI", "images/Maui.jpg"], ["Myrtle, NC", "images/Myrtle.jpg"]];
+        var Top3InternationalDestination = [["Budapest, Hungary", "images/Hungary.jpg"], ["Barcelona, Spain", "images/spain.jpg"], ["Yogyakarta, Indonesia", "images/Indonesia.jpg"]];
+        var Top3InternationalBeaches = [["Ibiza, Spain", "images/Ibiza_spain.jpg"], ["Maldives", "images/Maldives.jpg"], ["Railay Beach, thailand", "images/Railay_beach_Thailand.jpg"]];
 
 
         addCard("trendingDiv", Top5TrendingDestination[0][0], Top5TrendingDestination[0][1]);
@@ -349,6 +425,11 @@
         addCard("trendingDiv", Top5TrendingDestination[2][0], Top5TrendingDestination[2][1]);
         addCard("trendingDiv", Top5TrendingDestination[3][0], Top5TrendingDestination[3][1]);
         addCard("trendingDiv", Top5TrendingDestination[4][0], Top5TrendingDestination[4][1]);
+
+        // var city = "London";
+        // console.log(city);
+
+        // displayEventInfo(city);
 
         $("#Trending").show();
         $("#Suggestions").hide();
@@ -358,7 +439,7 @@
             $("#event-list-image").empty();
             $("#event-list-dt").empty();
             $("#event-list-text").empty();
-            console.log("inside the displayEventInfo function for city: " + city);
+
 
             var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=QW0RmyVGGiG8UHcQOKsmezCeVAoqIaPU&classificationName=music&city=" + city;
 
@@ -382,20 +463,16 @@
 
                     // Displaying the image
                     var p_image = $("<img>").attr('src', response._embedded.events[i].images[0].url);
-                    p_image.attr("width", "75px%");
-                    eventDiv.append(p_image);
+                    p_image.attr("width", "50px%");
+                    eventDiv_img.append(p_image);
 
                     // Displaying the date
                     var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
-                    p_date.attr("class", "reduce-padding-margin-to-5"); 
-                    // console.log(p_date);
-                    // console.log(moment(p_date).format("MMM Do YY"));
-                    eventDiv.append(moment(p_date).format("MMM Do YY"));
+                    eventDiv_dt.append(p_date);
 
                     // Displaying the event
                     var p_event = $("<a>").text(response._embedded.events[i].name);
                     p_event.attr('href', response._embedded.events[i].url);
-                    p_event.attr("class", "reduce-padding-margin-to-5"); 
                     eventDiv.append(p_event);
 
                     // Displaying a blank line
@@ -404,16 +481,14 @@
 
                     console.log(eventDiv);
                     // Adding event to div
-                    // $("#event-list-image").prepend(eventDiv_img);
-                    // $("#event-list-dt").prepend(eventDiv_dt);
-                    
-                    $("#topEvents").prepend(eventDiv);
+                    $("#event-list-image").prepend(eventDiv_img);
+                    $("#event-list-dt").prepend(eventDiv_dt);
+                    $("#event-list-text").prepend(eventDiv);
                 }
             });
 
         }
 
-        //When the direct search button is clicked, it will render events, need to add map, weather, attractions
         $("#add-city").on("click", function (event) {
             event.preventDefault();
 
@@ -422,8 +497,6 @@
             // This line grabs the input from the textbox
             var city = $("#search-input").val().trim();
 
-
-            addMap();
             // Adding movie from the textbox to our array
             //restoreCity.push(city);
 
@@ -433,72 +506,143 @@
             displayEventInfo(city);
         });
 
-        //When any card is clicked, it will render events, need to add map, weather, attractions
-        $(".card").on("click", function (event) {
+
+        $("#first-card").on("click", function (event) {
             event.preventDefault();
 
-            // console.log("--------before retrieving data--------");
-            //console.log(this);
-            // console.log($(this).attr("data"));
+            console.log("--------before retrieving data--------");
+            //console.log($("#first-card").data("city"));
             //console.log($("#first-suggestion_img").data("city"));
-            // console.log("--------after  retrieving data--------");
-            var city = $(this).attr("data");
-            addMap();
+            console.log("--------after  retrieving data--------");
 
-            displayEventInfo(city);
+            displayEventInfo("chicago");
         });
 
-        //Suggest 3 destinations based on radio button choice
         $("#search-city-radio").on("click", function (event) {
             event.preventDefault();
 
-            $("#suggestionsDiv").empty();
+            $("#first-suggestion").empty();
+            $("#first-suggestion_img").empty();
+            $("#second-suggestion").empty();
+            $("#second-suggestion_img").empty();
+            $("#third-suggestion").empty();
+            $("#third-suggestion_img").empty();
 
+            //var restoreCity = JSON.parse(localStorage.getItem('cityArray'));
+
+            // This line grabs the input from the textbox
             var radioValDomesticInternational = $("input[name='domesticInternational']:checked").val();
+            // console.log("--------before printing radio button--------");
+            // console.log(radioValDomesticInternational);
+            // console.log("--------after printing radio button--------");
+
             var radioValWeather = $("input[name='weather']:checked").val();
+            // console.log("--------before printing radio button--------");
+            // console.log(radioValWeather);
+            // console.log("--------after printing radio button--------");
 
             if (radioValDomesticInternational == "Domestic" && radioValWeather == "WarmWeather") {
                 console.log(Top3DomesticBeaches);
 
-                addCard("suggestionsDiv", Top3DomesticBeaches[0][0], Top3DomesticBeaches[0][1]);
-                addCard("suggestionsDiv", Top3DomesticBeaches[1][0], Top3DomesticBeaches[1][1]);
-                addCard("suggestionsDiv", Top3DomesticBeaches[2][0], Top3DomesticBeaches[2][1]);
+                //$("#first-card").attr("city", "Dallas");
+                //$("#first-suggestion_img").data("city", "Dallas");
+
+                var p_firstsuggestion = $("<p>").text(Top3DomesticBeaches[0][0]);
+                $("#first-suggestion").append(p_firstsuggestion);
+                var p_firstsuggestion_img = $("<img>").attr("src", Top3DomesticBeaches[0][1]);
+                $("#first-suggestion_img").append(p_firstsuggestion_img);
+
+                var p_secondsuggestion = $("<p>").text(Top3DomesticBeaches[1][0]);
+                $("#second-suggestion").append(p_secondsuggestion);
+                var p_secondsuggestion_img = $("<img>").attr("src", Top3DomesticBeaches[1][1]);
+                $("#second-suggestion_img").append(p_secondsuggestion_img);
+
+                var p_thirdsuggestion = $("<p>").text(Top3DomesticBeaches[2][0]);
+                $("#third-suggestion").append(p_thirdsuggestion);
+                var p_thirdsuggestion_img = $("<img>").attr("src", Top3DomesticBeaches[2][1]);
+                $("#third-suggestion_img").append(p_thirdsuggestion_img);
+
 
             } else if (radioValDomesticInternational == "Domestic" && radioValWeather == "AnyWeather") {
                 // console.log(Top3DomesticDestination);
 
-                addCard("suggestionsDiv", Top3DomesticDestination[0][0], Top3DomesticDestination[0][1]);
-                addCard("suggestionsDiv", Top3DomesticDestination[1][0], Top3DomesticDestination[1][1]);
-                addCard("suggestionsDiv", Top3DomesticDestination[2][0], Top3DomesticDestination[2][1]);
+                var p_firstsuggestion = $("<p>").text(Top3DomesticDestination[0][0]);
+                $("#first-suggestion").append(p_firstsuggestion);
+                var p_firstsuggestion_img = $("<img>").attr("src", Top3DomesticDestination[0][1]);
+                $("#first-suggestion_img").append(p_firstsuggestion_img);
+
+                var p_secondsuggestion = $("<p>").text(Top3DomesticDestination[1][0]);
+                $("#second-suggestion").append(p_secondsuggestion);
+                var p_secondsuggestion_img = $("<img>").attr("src", Top3DomesticDestination[1][1]);
+                $("#second-suggestion_img").append(p_secondsuggestion_img);
+
+                var p_thirdsuggestion = $("<p>").text(Top3DomesticDestination[2][0]);
+                $("#third-suggestion").append(p_thirdsuggestion);
+                var p_thirdsuggestion_img = $("<img>").attr("src", Top3DomesticDestination[2][1]);
+                $("#third-suggestion_img").append(p_thirdsuggestion_img);
 
             } else if (radioValDomesticInternational == "International" && radioValWeather == "WarmWeather") {
                 //console.log(Top3InternationalBeaches);
 
-                addCard("suggestionsDiv", Top3InternationalBeaches[0][0], Top3InternationalBeaches[0][1]);
-                addCard("suggestionsDiv", Top3InternationalBeaches[1][0], Top3InternationalBeaches[1][1]);
-                addCard("suggestionsDiv", Top3InternationalBeaches[2][0], Top3InternationalBeaches[2][1]);
+                var p_firstsuggestion = $("<p>").text(Top3InternationalBeaches[0][0]);
+                $("#first-suggestion").append(p_firstsuggestion);
+                var p_firstsuggestion_img = $("<img>").attr("src", Top3InternationalBeaches[0][1]);
+                $("#first-suggestion_img").append(p_firstsuggestion_img);
+
+                var p_secondsuggestion = $("<p>").text(Top3InternationalBeaches[1][0]);
+                $("#second-suggestion").append(p_secondsuggestion);
+                var p_secondsuggestion_img = $("<img>").attr("src", Top3InternationalBeaches[1][1]);
+                $("#second-suggestion_img").append(p_secondsuggestion_img);
+
+                var p_thirdsuggestion = $("<p>").text(Top3InternationalBeaches[2][0]);
+                $("#third-suggestion").append(p_thirdsuggestion);
+                var p_thirdsuggestion_img = $("<img>").attr("src", Top3InternationalBeaches[2][1]);
+                $("#third-suggestion_img").append(p_thirdsuggestion_img);
 
             } else if (radioValDomesticInternational == "International" && radioValWeather == "AnyWeather") {
                 // console.log(Top3InternationalDestination);
 
-                addCard("suggestionsDiv", Top3InternationalDestination[0][0], Top3InternationalDestination[0][1]);
-                addCard("suggestionsDiv", Top3InternationalDestination[1][0], Top3InternationalDestination[1][1]);
-                addCard("suggestionsDiv", Top3InternationalDestination[2][0], Top3InternationalDestination[2][1]);
+                var p_firstsuggestion = $("<p>").text(Top3InternationalDestination[0][0]);
+                $("#first-suggestion").append(p_firstsuggestion);
+                var p_firstsuggestion_img = $("<img>").attr("src", Top3InternationalDestination[0][1]);
+                $("#first-suggestion_img").append(p_firstsuggestion_img);
 
+                var p_secondsuggestion = $("<p>").text(Top3InternationalDestination[1][0]);
+                $("#second-suggestion").append(p_secondsuggestion);
+                var p_secondsuggestion_img = $("<img>").attr("src", Top3InternationalDestination[1][1]);
+                $("#second-suggestion_img").append(p_secondsuggestion_img);
+
+                var p_thirdsuggestion = $("<p>").text(Top3InternationalDestination[2][0]);
+                $("#third-suggestion").append(p_thirdsuggestion);
+                var p_thirdsuggestion_img = $("<img>").attr("src", Top3InternationalDestination[2][1]);
+                $("#third-suggestion_img").append(p_thirdsuggestion_img);
             }
+            var city = "London";
+            console.log(city);
 
             $("#Trending").hide();
             $("#Suggestions").show();
+            displayEventInfo(city);
+
         });
 
-        //Method to add a card for Trending or Suggestin section
         function addCard(sectionName, cityName, city_image) {
 
-            var divColumn = $("<div>").attr("class", "column").append(`<div class='card' id="${cityName}Card" data=${cityName}>`)
+            //Have to use parameters
+            //have to use unique id
+
+            // console.log("******************inside************");
+            // console.log(sectionName);
+            // console.log(cityName);
+            // console.log(city_image);
+
+            //var divColumn = $("<div>").attr("class", "column").append(`<div class='card' id="newCard"${cityName}">`)
+            var divColumn = $("<div>").attr("class", "column").append(`<div class='card' id="${cityName}Card">`)
             $(`#${sectionName}`).append(divColumn);
 
             $(`<figure class='image is-4by3' id="${cityName}Fig">`).appendTo(`#${cityName}Card`);
-
+            
+            //$("<img src='images/Tokyo.jpg'>").appendTo("#newFigure");
             $(`<img src="${city_image}">`).appendTo(`#${cityName}Fig`);
 
             $(`<div class='card-content' id="${cityName}CardContent">`).appendTo(`#${cityName}Card`);
@@ -508,27 +652,9 @@
 
         }
 
-        //function to render map for a given city
-        function addMap() {
-
-            var mymap = L.map('mapid').setView([40.730610, -73.935242], 8);
-
-            // console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-            // console.log(Top5TrendingDestination);
-            // console.log(Top5TrendingDestination[2]);
-            // console.log(Top5TrendingDestination[3]);
-
-            //var mymap = L.map('mapid').setView([Top5TrendingDestination[0][0][0],Top5TrendingDestination[0][0][1]], 8);
-
-            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoianVpMjciLCJhIjoiY2s1ZW9vbnp6MjlyOTNvbjA4d2owdmY1biJ9.rEV2FP60iVG5rSJ5kghC8g', {
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                maxZoom: 18,
-                id: 'mapbox/streets-v11',
-                accessToken: 'pk.eyJ1IjoianVpMjciLCJhIjoiY2s1ZW9vbnp6MjlyOTNvbjA4d2owdmY1biJ9.rEV2FP60iVG5rSJ5kghC8g'
-            }).addTo(mymap);
-
-        }
     </script>
+
+
 </body>
 
 </html>

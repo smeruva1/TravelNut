@@ -9,14 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin="" />
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-        crossorigin=""></script>
-
 </head>
 
 <style>
@@ -31,13 +23,6 @@
 
     /* .logo {
         opacity: 0.5;
-    } */
-    /* .vertical-center {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
     } */
 
     .reduce-padding-margin-to-5 {
@@ -81,15 +66,6 @@
         padding-left: 10px;
         padding-top: 10px;
     }
-
-    .travelSlogan {
-        padding-left: 10px;
-        /* padding-top: 10px; */
-    }
-
-    #mapid {
-        height: 180px;
-    }
 </style>
 
 <body>
@@ -104,10 +80,10 @@
                         <figure class="image">
                             <img src="images/TravelNutLogo2.png" class="logo" id="travellogo" style="max-width:100px;">
                         </figure>
-                        <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan">
+                        <h2 class="is-italic has-text-weight-bold has-text-primary">
                             Adventure awaits,
                         </h2>
-                        <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan">
+                        <h2 class="is-italic has-text-weight-bold has-text-primary">
                             Go find it!
                         </h2>
                     </div>
@@ -250,7 +226,7 @@
                 <div class="columns">
                     <!--Map Box-->
                     <div class="column">
-                        <div class="box map" id="mapid">
+                        <div class="box map">
                         </div>
                     </div>
                     <!--Weather Box-->
@@ -328,15 +304,12 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript">
 
 
         // var Top5TrendingDestination = [["Tokyo, Japan", "images/Tokyo.jpg"], ["Shanghai, China", "images/shanghai.jpg"], ["Brașov, Romania", "images/Romania.jpg"], ["Ljubljana, slovenia", "images/Slovenia.jpg"], ["Buriram, Thailand", "images/buriramthailand.jpg"]];
 
-        //var Top5TrendingDestination = [["London", "images/SanAntino.jpg", "40.730610", "-73.935242"]]
-
-        var Top5TrendingDestination = [["London", "images/Tokyo.jpg"], ["Shanghai", "images/shanghai.jpg"], ["Romania", "images/Romania.jpg"], ["slovenia", "images/Slovenia.jpg"], ["Thailand", "images/buriramthailand.jpg"]];
+        var Top5TrendingDestination = [["London", "images/SanAntino.jpg"], ["Shanghai", "images/shanghai.jpg"], ["Brașov", "images/Romania.jpg"], ["Ljubljana", "images/Slovenia.jpg"], ["Buriram", "images/buriramthailand.jpg"]];
 
         var Top3DomesticDestination = [["Portland", "images/Maine.jpg"], ["Yosemite", "images/YosemiteCA.jpg"], ["SanAntonio", "images/SanAntino.jpg"]];
         var Top3DomesticBeaches = [["Laguna", "images/LagunaCA.jpg"], ["Maui", "images/Maui.jpg"], ["Myrtle", "images/Myrtle.jpg"]];
@@ -382,20 +355,16 @@
 
                     // Displaying the image
                     var p_image = $("<img>").attr('src', response._embedded.events[i].images[0].url);
-                    p_image.attr("width", "75px%");
+                    p_image.attr("width", "50px%");
                     eventDiv.append(p_image);
 
                     // Displaying the date
                     var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
-                    p_date.attr("class", "reduce-padding-margin-to-5"); 
-                    // console.log(p_date);
-                    // console.log(moment(p_date).format("MMM Do YY"));
-                    eventDiv.append(moment(p_date).format("MMM Do YY"));
+                    eventDiv.append(p_date);
 
                     // Displaying the event
                     var p_event = $("<a>").text(response._embedded.events[i].name);
                     p_event.attr('href', response._embedded.events[i].url);
-                    p_event.attr("class", "reduce-padding-margin-to-5"); 
                     eventDiv.append(p_event);
 
                     // Displaying a blank line
@@ -406,7 +375,6 @@
                     // Adding event to div
                     // $("#event-list-image").prepend(eventDiv_img);
                     // $("#event-list-dt").prepend(eventDiv_dt);
-                    
                     $("#topEvents").prepend(eventDiv);
                 }
             });
@@ -423,7 +391,14 @@
             var city = $("#search-input").val().trim();
 
 
-            addMap();
+            $('<iframe />', {
+    name: 'myFrame',
+    id:   'myFrame',
+    src: 'https://api.mapbox.com/geocoding/v5/mapbox.places/Boston.json?access_token=pk.eyJ1IjoianVpMjciLCJhIjoiY2s1ZW9vbnp6MjlyOTNvbjA4d2owdmY1biJ9.rEV2FP60iVG5rSJ5kghC8g'
+}).appendTo('.map');
+
+            
+
             // Adding movie from the textbox to our array
             //restoreCity.push(city);
 
@@ -443,7 +418,6 @@
             //console.log($("#first-suggestion_img").data("city"));
             // console.log("--------after  retrieving data--------");
             var city = $(this).attr("data");
-            addMap();
 
             displayEventInfo(city);
         });
@@ -505,27 +479,6 @@
             $(`<p class='title is-5'>${cityName}</p>`).appendTo(`#${cityName}CardContent`);
 
             $(`#${sectionName}`).append(divColumn);
-
-        }
-
-        //function to render map for a given city
-        function addMap() {
-
-            var mymap = L.map('mapid').setView([40.730610, -73.935242], 8);
-
-            // console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-            // console.log(Top5TrendingDestination);
-            // console.log(Top5TrendingDestination[2]);
-            // console.log(Top5TrendingDestination[3]);
-
-            //var mymap = L.map('mapid').setView([Top5TrendingDestination[0][0][0],Top5TrendingDestination[0][0][1]], 8);
-
-            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoianVpMjciLCJhIjoiY2s1ZW9vbnp6MjlyOTNvbjA4d2owdmY1biJ9.rEV2FP60iVG5rSJ5kghC8g', {
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                maxZoom: 18,
-                id: 'mapbox/streets-v11',
-                accessToken: 'pk.eyJ1IjoianVpMjciLCJhIjoiY2s1ZW9vbnp6MjlyOTNvbjA4d2owdmY1biJ9.rEV2FP60iVG5rSJ5kghC8g'
-            }).addTo(mymap);
 
         }
     </script>
