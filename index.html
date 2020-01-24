@@ -25,7 +25,11 @@
             font-size: 30px;
         }
 
-        .icon {
+        .eventlink {
+            color: #0000EE;
+        }
+
+        .iconWeather {
             width: 200px;
             height: 40px;
         }
@@ -39,9 +43,10 @@
         margin: 10px; */
         }
 
-        /* .logo {
-        opacity: 0.5;
-    } */
+        .logo {
+            height: auto;
+        }
+
         /* .vertical-center {
         margin: 0;
         position: absolute;
@@ -97,31 +102,18 @@
             /* padding-top: 10px; */
         }
 
-        /* 
-    #mapid {
-        height: 180px;
-    } */
-
-        /* .card {
-        height: 100%;
-    } */
-
-        /* .searchSection {
-     
-        .is-$color
-    } */
-
         .map,
         .attractions,
         .events,
         .weather {
             height: 350px;
-
+            overflow: auto;
         }
     </style>
 
     <body>
         <div class="container">
+
             <!--Header section-->
             <section class="hero is-primary reduce-padding-margin-to-0">
                 <!-- <div class="hero-body"> -->
@@ -175,7 +167,6 @@
 
                                 <div class="columns">
                                     <div class="column">
-
                                         <div class="control">
                                             <label class="radio">
                                                 <input type="radio" name="domesticInternational" value="Domestic"
@@ -198,19 +189,15 @@
                                                 Any weather
                                             </label>
                                         </div>
-
                                         <br>
-
                                         <div class="buttons">
                                             <button class="button is-info" id="search-city-radio">Bon voyage!</button>
                                         </div>
-
                                     </div>
 
 
 
                                     <div class="column">
-
                                         <div class="control">
                                             <label class="radio">
                                                 <input type="radio" name="AdventureRelaxing" checked>
@@ -289,7 +276,7 @@
                                 <div class="container weatherbox">
                                     <h3 id="city"></h3>
                                     <h3 id="date"></h3>
-                                    <div class="icon"></div>
+                                    <div class="iconWeather"></div>
                                     <h3 id="temperature"></h3>
                                     <h3 id="temp"></h3>
                                     </h3>
@@ -321,89 +308,66 @@
 
                                 </div>
                                 <!-- Events will get Dumped Here  -->
-                                <!-- <div class="columns">
-                                <div class="column is-one-quarter">
-                                    <div id="event-list-image"></div>
-                                </div>
-                                <div class="column is-one-quarter">
-                                    <div id="event-list-dt"></div>
-                                </div>
-                                <div class="column is-one-half">
-                                    <div id="event-list-text"></div>
-                                </div>
-                            </div> -->
+
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <body>
-                <section class="section">
-                    <div class="container">
-                        <h1 class="title">Partner Sites</h1>
+            <!--Links to Partner sites-->
+            <section class="section reduce-padding-margin-to-0">
 
+                <div class="container notification is-info">
+                    <h1 class="title is-size-4">Partner Sites</h1>
 
-                        <div class="container">
-                            <!-- <img src="assets/css/images/travel.gif" alt="travel"></img> -->
-
-                            <div class="columns">
-                                <div class="column is-vcentered">
-
-                                    <a href="https://www.tripadvisor.com/Restaurants">
-
-
-                                        <i class="fas fa-utensils" style="font-size:30px;color:#82A0C2"></i>
-                                    </a>
-
-                                </div>
-                                <div class="column">
-
-                                    <a
-                                        href="https://www.trivago.com/?themeId=114&iPathId=34812&sem_keyword=reserve%20hotel&sem_creativeid=334924274844&sem_matchtype=e&sem_network=g&sem_device=c&sem_placement=&sem_target=&sem_adposition=1t2&sem_param1=&sem_param2=&sem_campaignid=99851886&sem_adgroupid=5212020246&sem_targetid=kwd-51173231&sem_location=9004041&cip=1061900383&gclid=CjwKCAiAsIDxBRAsEiwAV76N891ky2TgoumInE5H1f2KfaIVqE7mE5AL6IUWl1WZQbn7ZxuEN-EbBBoC-A0QAvD_BwE">
-                                        <i class="fas fa-hotel" style="font-size:30px;color:#82A0C2"></i>
-                                    </a>
-
-                                </div>
-                                <div class="column">
-                                    <a
-                                        href="https://www.travelchannel.com/interests/shopping/photos/best-shopping-cities-around-the-world">
-                                        <i class="fas fa-shopping-cart" style="font-size:30px;color:#82A0C2"></i>
-                                    </a>
-
-                                </div>
-                                <div class="column">
-                                    <a
-                                        href="https://www.expedia.com/Flights?langid=1033&semcid=US.MULTILOBF.GOOGLE.GT-c-EN.FLIGHT&semdtl=a1355852835.b125535175155.r1.g1kwd-18708030.i1.d1280328929850.e1c.j19004041.k1.f11t1.n1.l1g.h1e.m1&gclid=CjwKCAiAsIDxBRAsEiwAV76N83hlRcqVVq_uGapGf9uTuozEjXcbe_FrOB6t3mw-WXVGG_ACBk4AGBoCWc0QAvD_BwE">
-                                        <i class="fas fa-plane" style="font-size:30px;color:#82A0C2"></i>
-                                    </a>
-                                </div>
-
-
-                            </div>
-
-
+                    <!-- <div class="container"> -->
+                    <div class="columns">
+                        <div class="column  has-text-centered">
+                            <a href="https://www.tripadvisor.com/Restaurants">
+                                <i class="fas fa-utensils " style="font-size:30px;color:white"></i>
+                            </a>
 
                         </div>
-                </section>
-            </body>
+                        <div class="column  has-text-centered">
+                            <a
+                                href="https://www.trivago.com/?themeId=114&iPathId=34812&sem_keyword=reserve%20hotel&sem_creativeid=334924274844&sem_matchtype=e&sem_network=g&sem_device=c&sem_placement=&sem_target=&sem_adposition=1t2&sem_param1=&sem_param2=&sem_campaignid=99851886&sem_adgroupid=5212020246&sem_targetid=kwd-51173231&sem_location=9004041&cip=1061900383&gclid=CjwKCAiAsIDxBRAsEiwAV76N891ky2TgoumInE5H1f2KfaIVqE7mE5AL6IUWl1WZQbn7ZxuEN-EbBBoC-A0QAvD_BwE">
+                                <i class="fas fa-hotel" style="font-size:30px;color:white"></i>
+                            </a>
+                        </div>
+                        <div class="column  has-text-centered">
+                            <a
+                                href="https://www.travelchannel.com/interests/shopping/photos/best-shopping-cities-around-the-world">
+                                <i class="fas fa-shopping-cart" style="font-size:30px;color:white"></i>
+                            </a>
+                        </div>
+                        <div class="column  has-text-centered">
+                            <a
+                                href="https://www.expedia.com/Flights?langid=1033&semcid=US.MULTILOBF.GOOGLE.GT-c-EN.FLIGHT&semdtl=a1355852835.b125535175155.r1.g1kwd-18708030.i1.d1280328929850.e1c.j19004041.k1.f11t1.n1.l1g.h1e.m1&gclid=CjwKCAiAsIDxBRAsEiwAV76N83hlRcqVVq_uGapGf9uTuozEjXcbe_FrOB6t3mw-WXVGG_ACBk4AGBoCWc0QAvD_BwE">
+                                <i class="fas fa-plane" style="font-size:30px;color:white"></i>
+                            </a>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+            </section>
 
             <!--Footer section Box-->
             <footer class="footer reduce-padding-margin-to-0">
                 <div class="content">
                     <div class="columns">
                         <div class="column">
-                            <p>
-                                <strong>Global Sites:</strong>
+                            <span class="iconflags">
+                                <!-- <h6>Global Sites:</h6> -->
+                                <img src="images/iconfinder_Germany_flat_92094.png" class="icon is-medium">
+                                <img src="images/iconfinder_United-Kingdom_flat_92402.png" class="icon is-medium">
+                                <img src="images/iconfinder_United-States_flat_92406.png" class="icon is-medium">
+                            </span>
 
-                                <span class="icon" style="display:flexbox;">
-                                    <img src="images/iconfinder_Germany_flat_92094.png" class="is-24x24">
-                                    <img src="images/iconfinder_United-Kingdom_flat_92402.png" class="is-24x24">
-                                    <img src="images/iconfinder_United-States_flat_92406.png" class="is-24x24">
-                                </span>
 
-                                <p>&#169; 2020 JSON Jaguars, All rights reserved</p>
-                            </p>
+                            <!-- </div> -->
+                        </div>
+                        <div class="column">
+                            <p>&#169; 2020 JSON Jaguars, All rights reserved</p>
                         </div>
                         <div class="column" style="text-align:right;">
                             <!-- Add font awesome icons -->
@@ -441,14 +405,13 @@
 
             $("#Trending").show();
             $("#Suggestions").hide();
-            // $(".resultsSection").hide();
+            $(".resultsSection").hide();
 
             // displayEventInfo function re-renders the HTML to display the appropriate content
             function displayEventInfo(city) {
-                $("#event-list-image").empty();
-                $("#event-list-dt").empty();
-                $("#event-list-text").empty();
-                console.log("inside the displayEventInfo function for city: " + city);
+                $("#topEvents").empty();
+
+                //console.log("inside the displayEventInfo function for city: " + city);
 
                 var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=QW0RmyVGGiG8UHcQOKsmezCeVAoqIaPU&classificationName=music&city=" + city;
 
@@ -457,45 +420,52 @@
                     url: queryURL,
                     method: "GET"
                 }).then(function (response) {
-                    console.log("inside then function");
-
-                    console.log(response);
+                    // console.log("inside then function");
+                    // console.log(response);
 
                     for (i = 0; i < 5; i++) {
 
-                        console.log("inside then for loop");
+                        // console.log("inside then for loop");
 
                         // Creating a div to hold the event
-                        var eventDiv_img = $("<div class='event'>");
-                        var eventDiv_dt = $("<div class='event'>");
+                        // var eventDiv_img = $("<div class='event'>");
+                        // var eventDiv_dt = $("<div class='event'>");
                         var eventDiv = $("<div class='event'>");
+
+                        var event_span = $("<span>")
+                        //eventDiv.append(event_span);
 
                         // Displaying the image
                         var p_image = $("<img>").attr('src', response._embedded.events[i].images[0].url);
-                        p_image.attr("width", "75px%");
-                        eventDiv.append(p_image);
+                        p_image.attr("width", "60px%");
+                        p_image.attr("class", "reduce-padding-margin-to-5");
+                        p_image.attr("style", "vertical-align:middle;");
+                        event_span.append(p_image);
 
                         // Displaying the date
                         var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
-                        p_date.attr("class", "reduce-padding-margin-to-5");
+                        // p_date.attr("class", "reduce-padding-margin-to-5");
                         // console.log(p_date);
                         // console.log(moment(p_date).format("MMM Do YY"));
-                        eventDiv.append(moment(p_date).format("MMM Do YY"));
+                        event_span.append(moment(p_date).format("MMM Do YY"));
 
                         // Displaying the event
                         var p_event = $("<a>").text(response._embedded.events[i].name);
                         p_event.attr('href', response._embedded.events[i].url);
                         p_event.attr("class", "reduce-padding-margin-to-5");
-                        eventDiv.append(p_event);
+                        p_event.attr("style", "color: #0000EE;");
+                        event_span.append(p_event);
 
                         // Displaying a blank line
-                        var pFinal = $("<BR>");
-                        eventDiv.append(pFinal);
+                        // var pFinal = $("<BR>");
+                        //     event_span.append(pFinal);
 
-                        console.log(eventDiv);
+                        //console.log(eventDiv);
                         // Adding event to div
                         // $("#event-list-image").prepend(eventDiv_img);
                         // $("#event-list-dt").prepend(eventDiv_dt);
+
+                        eventDiv.append(event_span);
 
                         $("#topEvents").prepend(eventDiv);
                     }
@@ -514,7 +484,6 @@
 
                 renderweather(city);
 
-                addMap();
                 // Adding movie from the textbox to our array
                 //restoreCity.push(city);
 
@@ -531,7 +500,7 @@
 
             //When any card is clicked, it will render events, need to add map, weather, attractions
             $(document).on("click", ".card", function (event) {
-                console.log('HI')
+                //console.log('HI');
 
                 // console.log("--------before retrieving data--------");
                 //console.log(this);
@@ -540,9 +509,7 @@
                 // console.log("--------after  retrieving data--------");
                 var city = $(this).attr("data");
 
-
-                addMap();
-
+                renderweather(city);
                 displayEventInfo(city);
 
                 $("#Trending").hide();
@@ -561,7 +528,7 @@
                 var radioValWeather = $("input[name='weather']:checked").val();
 
                 if (radioValDomesticInternational == "Domestic" && radioValWeather == "WarmWeather") {
-                    console.log(Top3DomesticBeaches);
+                    //console.log(Top3DomesticBeaches);
 
                     addCard("suggestionsDiv", Top3DomesticBeaches[0][0], Top3DomesticBeaches[0][1]);
                     addCard("suggestionsDiv", Top3DomesticBeaches[1][0], Top3DomesticBeaches[1][1]);
@@ -592,7 +559,7 @@
 
                 $("#Trending").hide();
                 $("#Suggestions").show();
-                // $(".resultsSection").hide();
+                $(".resultsSection").hide();
 
             });
 
@@ -614,13 +581,13 @@
             }
 
             //function to render map for a given city
-            function addMap() {
-                $('.weather-map-column').empty()
-                var mapDiv = $('<div>')
-                mapDiv.attr("id", "mapid").addClass('box map')
-                mapDiv.appendTo('.weather-map-column')
+            function addMap(lat, lon) {
+                $('.weather-map-column').empty();
+                var mapDiv = $('<div>');
+                mapDiv.attr("id", "mapid").addClass('box map');
+                mapDiv.appendTo('.weather-map-column');
 
-                var mymap = L.map('mapid').setView([40.730610, -73.935242], 8);
+                var mymap = L.map('mapid').setView([lat, lon], 8);
 
 
                 // console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
@@ -639,31 +606,55 @@
 
             }
 
+            //function to build weather map url
             function accuweatherURL(key, value) {
                 var apikey = "?apikey=VWYubnkyp0mi8ho0Mo8xO9DHULE781DY";
                 var baseURL = "";
                 if (key === "key") {
                     var query = "&q=" + value;
                     var details = "&details=false";
-                    baseURL += "http://dataservice.accuweather.com/locations/v1/cities/search" + apikey + query + details
+                    baseURL += "http://dataservice.accuweather.com/locations/v1/cities/search" + apikey + query + details;
+
+                    // console.log("printing baseURL-------------");
+                    // console.log(baseURL);
+
+                    // var corsAPI = `https://alex-rosencors.herokuapp.com/?url=${baseURL}`
+
+                    // console.log("printing corsAPI-------------");
+                    // console.log(corsAPI);
+
+                    // $.ajax({
+                    //     url: corsAPI,
+                    //     method: "GET"
+                    // })
+                    //     .then(function (eventRes) {
+                    //         console.log("printing eventRes-------------");
+                    //         console.log(eventRes);
+                    //     });
+
+
                 } else if (key === "forecast") {
                     baseURL += "http://dataservice.accuweather.com/forecasts/v1/daily/1day/" + value + apikey
                 }
                 return baseURL
             }
 
+            //function to render weather
             function renderweather(city) {
-                var searchFor = city;
-                $("#searchInput").val("");
-                console.log("Search: ", searchFor)
-                $.get(accuweatherURL("key", searchFor))
+                // var searchFor = city;
+                //$("#searchInput").val("");
+                //console.log("Search: ", city);
+
+                $.get(accuweatherURL("key", city))
                     .then(function (keyResponse) {
-                        console.log("KeyResponse: ", keyResponse[0])
+                        // console.log("KeyResponse: ", keyResponse[0]);
+                        // console.log("KeyResponse: ", keyResponse[0].GeoPosition.Latitude);
+                        // console.log("KeyResponse: ", keyResponse[0].GeoPosition.Longitude);
                         var key = keyResponse[0].Key
-                        console.log("Key: ", key)
+                        // console.log("Key: ", key)
                         $.get(accuweatherURL("forecast", key))
                             .then(function (forecastResponse) {
-                                console.log("ForecastResponse: ", forecastResponse)
+                                // console.log("ForecastResponse: ", forecastResponse)
                                 var mappedResponse = forecastResponse.DailyForecasts.map(function (forecast) {
                                     if (forecast.Day.Icon < 10) {
                                         forecast.Day.Icon = `0${forecast.Day.Icon}`
@@ -674,15 +665,18 @@
                                     }
                                     return forecast
                                 })
-                                console.log(mappedResponse)
+                                // console.log(mappedResponse)
                                 $("#city").text("City: " + keyResponse[0].LocalizedName)
                                 $("#date").text("Date: " + moment(forecastResponse.DailyForecasts[0].Date).format("MM/DD/YYYY"))
                                 $("#temperature").text("Min Temp: " + forecastResponse.DailyForecasts[0].Temperature.Minimum.Value)
                                 $("#temp").text("Max Temp: " + forecastResponse.DailyForecasts[0].Temperature.Maximum.Value)
-                                $(".icon").empty()
-                                var icon = $("<img>").attr("src", "https://api.accuweather.com/developers/Media/Default/WeatherIcons/" + mappedResponse[0].Day.Icon + "-s.png");
-                                console.log(icon);
-                                $(".icon").append(icon);
+                                $(".iconWeather").empty()
+                                var iconW = $("<img>").attr("src", "https://api.accuweather.com/developers/Media/Default/WeatherIcons/" + mappedResponse[0].Day.Icon + "-s.png");
+                                // console.log(icon);
+                                $(".iconWeather").append(iconW);
+
+                                //call Map function for a given city based on coordinates
+                                addMap(keyResponse[0].GeoPosition.Latitude, keyResponse[0].GeoPosition.Longitude);
                             });
                     });
             };
