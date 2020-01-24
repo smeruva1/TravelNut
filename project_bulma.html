@@ -1,0 +1,694 @@
+<DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Project Travel Nut Bulma!</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+            integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+            crossorigin="" />
+        <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+
+    </head>
+
+    <style>
+        .weatherbox {
+            font-size: 30px;
+        }
+
+        .icon {
+            width: 200px;
+            height: 40px;
+        }
+
+        .hero {
+            background: url(images/overall.gif) center/cover;
+            /* max-width:100%; */
+            /* height: auto; */
+            /* overflow: hidden;  */
+            /* padding: 10px;
+        margin: 10px; */
+        }
+
+        /* .logo {
+        opacity: 0.5;
+    } */
+        /* .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    } */
+
+        .reduce-padding-margin-to-5 {
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .reduce-padding-margin-to-0 {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .is-facebook {
+            color: #fff;
+            background-color: #3b5998;
+            border-color: rgba(0, 0, 0, 0.2);
+            margin: 5px;
+        }
+
+        .is-twitter {
+            color: #fff;
+            background-color: #55acee;
+            border-color: rgba(0, 0, 0, 0.2);
+            margin: 5px;
+        }
+
+        .is-instagram {
+            color: #fff;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            border-color: rgba(0, 0, 0, 0.2);
+            margin: 5px;
+        }
+
+        .footer {
+            /* padding: 2rem 1rem 4rem !important;  */
+            /* padding: 10%; */
+            padding: 10px;
+        }
+
+        #travellogo {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .travelSlogan {
+            padding-left: 10px;
+            /* padding-top: 10px; */
+        }
+
+        /* 
+    #mapid {
+        height: 180px;
+    } */
+
+        /* .card {
+        height: 100%;
+    } */
+
+        /* .searchSection {
+     
+        .is-$color
+    } */
+
+        .map,
+        .attractions,
+        .events,
+        .weather {
+            height: 350px;
+
+        }
+    </style>
+
+    <body>
+        <div class="container">
+            <!--Header section-->
+            <section class="hero is-primary reduce-padding-margin-to-0">
+                <!-- <div class="hero-body"> -->
+                <div>
+                    <div class="columns">
+                        <div class="column">
+
+                            <figure class="image">
+                                <img src="images/TravelNutLogo2.png" class="logo" id="travellogo"
+                                    style="max-width:100px;">
+                            </figure>
+                            <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan">
+                                Adventure awaits,
+                            </h2>
+                            <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan">
+                                Go find it!
+                            </h2>
+                        </div>
+                        <div class="column" style="text-align:right;">
+
+                            <nav class="navbar" role="navigation" aria-label="main navigation">
+
+                                <div class="navbar-end">
+                                    <div class="navbar-item">
+                                        <div class="buttons">
+                                            <a class="button is-primary">
+                                                <strong>Sign up</strong>
+                                            </a>
+                                            <a class="button is-light">
+                                                Log in
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Search section-->
+            <section class="section reduce-padding-margin-to-0">
+                <div class="notification is-primary">
+
+                    <div class="columns">
+                        <div class="column is-8">
+
+                            <h1 class="title is-size-4">Ready to book a trip but not sure where?</h1>
+                            <p class="is-size-5">
+                                Answer these simple questions and we will suggest top destinations for you:
+
+                                <div class="columns">
+                                    <div class="column">
+
+                                        <div class="control">
+                                            <label class="radio">
+                                                <input type="radio" name="domesticInternational" value="Domestic"
+                                                    checked>
+                                                Domestic
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="domesticInternational" value="International">
+                                                International
+                                            </label>
+                                        </div>
+
+                                        <div class="control">
+                                            <label class="radio">
+                                                <input type="radio" name="weather" value="WarmWeather" checked>
+                                                Warm Weather
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="weather" value="AnyWeather">
+                                                Any weather
+                                            </label>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="buttons">
+                                            <button class="button is-info" id="search-city-radio">Bon voyage!</button>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="column">
+
+                                        <div class="control">
+                                            <label class="radio">
+                                                <input type="radio" name="AdventureRelaxing" checked>
+                                                Adventure
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="AdventureRelaxing">
+                                                Relaxing
+                                            </label>
+                                        </div>
+
+                                        <div class="control">
+                                            <label class="radio">
+                                                <input type="radio" name="guidedtoursSelf" checked>
+                                                Guided Tours
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="guidedtoursSelf">
+                                                Self-Guided Tours
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </p>
+                        </div>
+
+                        <div class="column" style="text-align:center;">
+                            <h1 class="title is-size-4">I know where I want to go.</h1>
+
+                            <div class="field  has-addons has-addons-centered">
+                                <div class="control" style="text-align:center;">
+                                    <input class="input" id="search-input" type="text" placeholder="Search City">
+                                </div>
+                                <div class="control">
+                                    <a class="button is-info" id="add-city">
+                                        Search
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            </section>
+
+            <!--Trending section-->
+            <section class="section reduce-padding-margin-to-0" id="Trending">
+                <div class="container notification is-warning is-light">
+                    <h1 class="title is-size-4">Top 5 Trending Destinations 2020</h1>
+                    <div class="columns" id="trendingDiv">
+                    </div>
+                </div>
+            </section>
+
+            <!--Suggestion section-->
+            <section class="section reduce-padding-margin-to-0" id="Suggestions">
+                <div class="container notification is-info is-light">
+                    <h1 class="title is-size-4">Destination Suggestions</h1>
+                    <div class="columns" id="suggestionsDiv">
+                    </div>
+            </section>
+
+            <!--Results section Map & Weather-->
+            <section class="section reduce-padding-margin-to-0 resultsSection">
+                <div class="container notification is-light">
+                    <h1 class="title"></h1>
+                    <!--Result section row 1-->
+                    <div class="columns">
+                        <!--Map Box-->
+                        <div class="column weather-map-column">
+
+                        </div>
+                        <!--Weather Box-->
+                        <div class="column">
+                            <div class="box weather">
+
+                                <div class="container weatherbox">
+                                    <h3 id="city"></h3>
+                                    <h3 id="date"></h3>
+                                    <div class="icon"></div>
+                                    <h3 id="temperature"></h3>
+                                    <h3 id="temp"></h3>
+                                    </h3>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Results section Attractions & events-->
+            <section class="section reduce-padding-margin-to-0 resultsSection">
+                <div class="container notification is-light">
+                    <h1 class="title"></h1>
+
+                    <!--Result section row 2-->
+                    <div class="columns">
+                        <!--Attractions Box-->
+                        <div class="column">
+                            <div class="box attractions">
+                            </div>
+                        </div>
+                        <!--Events Box-->
+                        <div class="column">
+                            <div class="box events">
+                                <p class="title is-5">Top events</p>
+                                <div id="topEvents">
+
+                                </div>
+                                <!-- Events will get Dumped Here  -->
+                                <!-- <div class="columns">
+                                <div class="column is-one-quarter">
+                                    <div id="event-list-image"></div>
+                                </div>
+                                <div class="column is-one-quarter">
+                                    <div id="event-list-dt"></div>
+                                </div>
+                                <div class="column is-one-half">
+                                    <div id="event-list-text"></div>
+                                </div>
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <body>
+                <section class="section">
+                    <div class="container">
+                        <h1 class="title">Partner Sites</h1>
+
+
+                        <div class="container">
+                            <!-- <img src="assets/css/images/travel.gif" alt="travel"></img> -->
+
+                            <div class="columns">
+                                <div class="column is-vcentered">
+
+                                    <a href="https://www.tripadvisor.com/Restaurants">
+
+
+                                        <i class="fas fa-utensils" style="font-size:30px;color:#82A0C2"></i>
+                                    </a>
+
+                                </div>
+                                <div class="column">
+
+                                    <a
+                                        href="https://www.trivago.com/?themeId=114&iPathId=34812&sem_keyword=reserve%20hotel&sem_creativeid=334924274844&sem_matchtype=e&sem_network=g&sem_device=c&sem_placement=&sem_target=&sem_adposition=1t2&sem_param1=&sem_param2=&sem_campaignid=99851886&sem_adgroupid=5212020246&sem_targetid=kwd-51173231&sem_location=9004041&cip=1061900383&gclid=CjwKCAiAsIDxBRAsEiwAV76N891ky2TgoumInE5H1f2KfaIVqE7mE5AL6IUWl1WZQbn7ZxuEN-EbBBoC-A0QAvD_BwE">
+                                        <i class="fas fa-hotel" style="font-size:30px;color:#82A0C2"></i>
+                                    </a>
+
+                                </div>
+                                <div class="column">
+                                    <a
+                                        href="https://www.travelchannel.com/interests/shopping/photos/best-shopping-cities-around-the-world">
+                                        <i class="fas fa-shopping-cart" style="font-size:30px;color:#82A0C2"></i>
+                                    </a>
+
+                                </div>
+                                <div class="column">
+                                    <a
+                                        href="https://www.expedia.com/Flights?langid=1033&semcid=US.MULTILOBF.GOOGLE.GT-c-EN.FLIGHT&semdtl=a1355852835.b125535175155.r1.g1kwd-18708030.i1.d1280328929850.e1c.j19004041.k1.f11t1.n1.l1g.h1e.m1&gclid=CjwKCAiAsIDxBRAsEiwAV76N83hlRcqVVq_uGapGf9uTuozEjXcbe_FrOB6t3mw-WXVGG_ACBk4AGBoCWc0QAvD_BwE">
+                                        <i class="fas fa-plane" style="font-size:30px;color:#82A0C2"></i>
+                                    </a>
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+                </section>
+            </body>
+
+            <!--Footer section Box-->
+            <footer class="footer reduce-padding-margin-to-0">
+                <div class="content">
+                    <div class="columns">
+                        <div class="column">
+                            <p>
+                                <strong>Global Sites:</strong>
+
+                                <span class="icon" style="display:flexbox;">
+                                    <img src="images/iconfinder_Germany_flat_92094.png" class="is-24x24">
+                                    <img src="images/iconfinder_United-Kingdom_flat_92402.png" class="is-24x24">
+                                    <img src="images/iconfinder_United-States_flat_92406.png" class="is-24x24">
+                                </span>
+
+                                <p>&#169; 2020 JSON Jaguars, All rights reserved</p>
+                            </p>
+                        </div>
+                        <div class="column" style="text-align:right;">
+                            <!-- Add font awesome icons -->
+                            <i class="fab fa-facebook is-facebook icon is-medium"></i>
+                            <i class="fab fa-twitter is-twitter icon is-medium"></i>
+                            <i class="fab fa-instagram is-instagram icon is-medium"></i>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script type="text/javascript">
+
+
+            // var Top5TrendingDestination = [["Tokyo, Japan", "images/Tokyo.jpg"], ["Shanghai, China", "images/shanghai.jpg"], ["Brașov, Romania", "images/Romania.jpg"], ["Ljubljana, slovenia", "images/Slovenia.jpg"], ["Buriram, Thailand", "images/buriramthailand.jpg"]];
+
+            //var Top5TrendingDestination = [["London", "images/SanAntino.jpg", "40.730610", "-73.935242"]]
+
+            var Top5TrendingDestination = [["London", "images/Tokyo.jpg"], ["Shanghai", "images/shanghai.jpg"], ["Romania", "images/Romania.jpg"], ["slovenia", "images/Slovenia.jpg"], ["Thailand", "images/buriramthailand.jpg"]];
+
+            var Top3DomesticDestination = [["test", "images/Tokyo.jpg"], ["New", "images/YosemiteCA.jpg"], ["Chicago", "images/SanAntino.jpg"]];
+            var Top3DomesticBeaches = [["Laguna", "images/LagunaCA.jpg"], ["Maui", "images/Maui.jpg"], ["Myrtle", "images/Myrtle.jpg"]];
+            var Top3InternationalDestination = [["Budapest", "images/Hungary.jpg"], ["Barcelona", "images/spain.jpg"], ["Yogyakarta", "images/Indonesia.jpg"]];
+            var Top3InternationalBeaches = [["Ibiza", "images/Ibiza_spain.jpg"], ["Maldives", "images/Maldives.jpg"], ["Railay", "images/Railay_beach_Thailand.jpg"]];
+
+
+            addCard("trendingDiv", Top5TrendingDestination[0][0], Top5TrendingDestination[0][1]);
+            addCard("trendingDiv", Top5TrendingDestination[1][0], Top5TrendingDestination[1][1]);
+            addCard("trendingDiv", Top5TrendingDestination[2][0], Top5TrendingDestination[2][1]);
+            addCard("trendingDiv", Top5TrendingDestination[3][0], Top5TrendingDestination[3][1]);
+            addCard("trendingDiv", Top5TrendingDestination[4][0], Top5TrendingDestination[4][1]);
+
+            $("#Trending").show();
+            $("#Suggestions").hide();
+            // $(".resultsSection").hide();
+
+            // displayEventInfo function re-renders the HTML to display the appropriate content
+            function displayEventInfo(city) {
+                $("#event-list-image").empty();
+                $("#event-list-dt").empty();
+                $("#event-list-text").empty();
+                console.log("inside the displayEventInfo function for city: " + city);
+
+                var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=QW0RmyVGGiG8UHcQOKsmezCeVAoqIaPU&classificationName=music&city=" + city;
+
+                // Creating an AJAX call for the specific event button being clicked
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                }).then(function (response) {
+                    console.log("inside then function");
+
+                    console.log(response);
+
+                    for (i = 0; i < 5; i++) {
+
+                        console.log("inside then for loop");
+
+                        // Creating a div to hold the event
+                        var eventDiv_img = $("<div class='event'>");
+                        var eventDiv_dt = $("<div class='event'>");
+                        var eventDiv = $("<div class='event'>");
+
+                        // Displaying the image
+                        var p_image = $("<img>").attr('src', response._embedded.events[i].images[0].url);
+                        p_image.attr("width", "75px%");
+                        eventDiv.append(p_image);
+
+                        // Displaying the date
+                        var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
+                        p_date.attr("class", "reduce-padding-margin-to-5");
+                        // console.log(p_date);
+                        // console.log(moment(p_date).format("MMM Do YY"));
+                        eventDiv.append(moment(p_date).format("MMM Do YY"));
+
+                        // Displaying the event
+                        var p_event = $("<a>").text(response._embedded.events[i].name);
+                        p_event.attr('href', response._embedded.events[i].url);
+                        p_event.attr("class", "reduce-padding-margin-to-5");
+                        eventDiv.append(p_event);
+
+                        // Displaying a blank line
+                        var pFinal = $("<BR>");
+                        eventDiv.append(pFinal);
+
+                        console.log(eventDiv);
+                        // Adding event to div
+                        // $("#event-list-image").prepend(eventDiv_img);
+                        // $("#event-list-dt").prepend(eventDiv_dt);
+
+                        $("#topEvents").prepend(eventDiv);
+                    }
+                });
+
+            }
+
+            //When the direct search button is clicked, it will render events, need to add map, weather, attractions
+            $("#add-city").on("click", function (event) {
+                event.preventDefault();
+
+                //var restoreCity = JSON.parse(localStorage.getItem('cityArray'));
+
+                // This line grabs the input from the textbox
+                var city = $("#search-input").val().trim();
+
+                renderweather(city);
+
+                addMap();
+                // Adding movie from the textbox to our array
+                //restoreCity.push(city);
+
+                //localStorage.setItem('cityArray', JSON.stringify(restoreCity));
+
+                // Calling renderButtons which handles the processing of our City array
+                displayEventInfo(city);
+
+                $("#Trending").hide();
+                $("#Suggestions").hide();
+                $(".resultsSection").show();
+
+            });
+
+            //When any card is clicked, it will render events, need to add map, weather, attractions
+            $(document).on("click", ".card", function (event) {
+                console.log('HI')
+
+                // console.log("--------before retrieving data--------");
+                //console.log(this);
+                // console.log($(this).attr("data"));
+                //console.log($("#first-suggestion_img").data("city"));
+                // console.log("--------after  retrieving data--------");
+                var city = $(this).attr("data");
+
+
+                addMap();
+
+                displayEventInfo(city);
+
+                $("#Trending").hide();
+                $("#Suggestions").hide();
+                $(".resultsSection").show();
+
+            });
+
+            //Suggest 3 destinations based on radio button choice
+            $("#search-city-radio").on("click", function (event) {
+                event.preventDefault();
+
+                $("#suggestionsDiv").empty();
+
+                var radioValDomesticInternational = $("input[name='domesticInternational']:checked").val();
+                var radioValWeather = $("input[name='weather']:checked").val();
+
+                if (radioValDomesticInternational == "Domestic" && radioValWeather == "WarmWeather") {
+                    console.log(Top3DomesticBeaches);
+
+                    addCard("suggestionsDiv", Top3DomesticBeaches[0][0], Top3DomesticBeaches[0][1]);
+                    addCard("suggestionsDiv", Top3DomesticBeaches[1][0], Top3DomesticBeaches[1][1]);
+                    addCard("suggestionsDiv", Top3DomesticBeaches[2][0], Top3DomesticBeaches[2][1]);
+
+                } else if (radioValDomesticInternational == "Domestic" && radioValWeather == "AnyWeather") {
+                    // console.log(Top3DomesticDestination);
+
+                    addCard("suggestionsDiv", Top3DomesticDestination[0][0], Top3DomesticDestination[0][1]);
+                    addCard("suggestionsDiv", Top3DomesticDestination[1][0], Top3DomesticDestination[1][1]);
+                    addCard("suggestionsDiv", Top3DomesticDestination[2][0], Top3DomesticDestination[2][1]);
+
+                } else if (radioValDomesticInternational == "International" && radioValWeather == "WarmWeather") {
+                    //console.log(Top3InternationalBeaches);
+
+                    addCard("suggestionsDiv", Top3InternationalBeaches[0][0], Top3InternationalBeaches[0][1]);
+                    addCard("suggestionsDiv", Top3InternationalBeaches[1][0], Top3InternationalBeaches[1][1]);
+                    addCard("suggestionsDiv", Top3InternationalBeaches[2][0], Top3InternationalBeaches[2][1]);
+
+                } else if (radioValDomesticInternational == "International" && radioValWeather == "AnyWeather") {
+                    // console.log(Top3InternationalDestination);
+
+                    addCard("suggestionsDiv", Top3InternationalDestination[0][0], Top3InternationalDestination[0][1]);
+                    addCard("suggestionsDiv", Top3InternationalDestination[1][0], Top3InternationalDestination[1][1]);
+                    addCard("suggestionsDiv", Top3InternationalDestination[2][0], Top3InternationalDestination[2][1]);
+
+                }
+
+                $("#Trending").hide();
+                $("#Suggestions").show();
+                // $(".resultsSection").hide();
+
+            });
+
+            //Method to add a card for Trending or Suggestin section
+            function addCard(sectionName, cityName, city_image) {
+
+                var divColumn = $("<div>").attr("class", "column").append(`<div class='card' id="${cityName}Card" data=${cityName}>`)
+                $(`#${sectionName}`).append(divColumn);
+
+                $(`<figure class='image is-4by3' id="${cityName}Fig">`).appendTo(`#${cityName}Card`);
+
+                $(`<img src="${city_image}">`).appendTo(`#${cityName}Fig`);
+
+                $(`<div class='card-content' id="${cityName}CardContent">`).appendTo(`#${cityName}Card`);
+                $(`<p class='title is-5'>${cityName}</p>`).appendTo(`#${cityName}CardContent`);
+
+                $(`#${sectionName}`).append(divColumn);
+
+            }
+
+            //function to render map for a given city
+            function addMap() {
+                $('.weather-map-column').empty()
+                var mapDiv = $('<div>')
+                mapDiv.attr("id", "mapid").addClass('box map')
+                mapDiv.appendTo('.weather-map-column')
+
+                var mymap = L.map('mapid').setView([40.730610, -73.935242], 8);
+
+
+                // console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+                // console.log(Top5TrendingDestination);
+                // console.log(Top5TrendingDestination[2]);
+                // console.log(Top5TrendingDestination[3]);
+
+                //var mymap = L.map('mapid').setView([Top5TrendingDestination[0][0][0],Top5TrendingDestination[0][0][1]], 8);
+
+                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoianVpMjciLCJhIjoiY2s1ZW9vbnp6MjlyOTNvbjA4d2owdmY1biJ9.rEV2FP60iVG5rSJ5kghC8g', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    maxZoom: 18,
+                    id: 'mapbox/streets-v11',
+                    accessToken: 'pk.eyJ1IjoianVpMjciLCJhIjoiY2s1ZW9vbnp6MjlyOTNvbjA4d2owdmY1biJ9.rEV2FP60iVG5rSJ5kghC8g'
+                }).addTo(mymap);
+
+            }
+
+            function accuweatherURL(key, value) {
+                var apikey = "?apikey=VWYubnkyp0mi8ho0Mo8xO9DHULE781DY";
+                var baseURL = "";
+                if (key === "key") {
+                    var query = "&q=" + value;
+                    var details = "&details=false";
+                    baseURL += "http://dataservice.accuweather.com/locations/v1/cities/search" + apikey + query + details
+                } else if (key === "forecast") {
+                    baseURL += "http://dataservice.accuweather.com/forecasts/v1/daily/1day/" + value + apikey
+                }
+                return baseURL
+            }
+
+            function renderweather(city) {
+                var searchFor = city;
+                $("#searchInput").val("");
+                console.log("Search: ", searchFor)
+                $.get(accuweatherURL("key", searchFor))
+                    .then(function (keyResponse) {
+                        console.log("KeyResponse: ", keyResponse[0])
+                        var key = keyResponse[0].Key
+                        console.log("Key: ", key)
+                        $.get(accuweatherURL("forecast", key))
+                            .then(function (forecastResponse) {
+                                console.log("ForecastResponse: ", forecastResponse)
+                                var mappedResponse = forecastResponse.DailyForecasts.map(function (forecast) {
+                                    if (forecast.Day.Icon < 10) {
+                                        forecast.Day.Icon = `0${forecast.Day.Icon}`
+                                    }
+
+                                    if (forecast.Night.Icon < 10) {
+                                        forecast.Night.Icon = `0${forecast.Night.Icon}`
+                                    }
+                                    return forecast
+                                })
+                                console.log(mappedResponse)
+                                $("#city").text("City: " + keyResponse[0].LocalizedName)
+                                $("#date").text("Date: " + moment(forecastResponse.DailyForecasts[0].Date).format("MM/DD/YYYY"))
+                                $("#temperature").text("Min Temp: " + forecastResponse.DailyForecasts[0].Temperature.Minimum.Value)
+                                $("#temp").text("Max Temp: " + forecastResponse.DailyForecasts[0].Temperature.Maximum.Value)
+                                $(".icon").empty()
+                                var icon = $("<img>").attr("src", "https://api.accuweather.com/developers/Media/Default/WeatherIcons/" + mappedResponse[0].Day.Icon + "-s.png");
+                                console.log(icon);
+                                $(".icon").append(icon);
+                            });
+                    });
+            };
+
+
+        </script>
+    </body>
+
+    </html>

@@ -1,12 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Travel Nut</title>
+    <title>Document</title>
 </head>
+
 <body>
-    
+
+    <!-- Search City  -->
+    <form id="searchCity">
+        <label for="search-input">Search city</label>
+        <input type="text" id="search-input">
+        <br>
+
+        <!-- Button triggers new City to be added -->
+        <input id="add-city" type="submit" value="Search City">
+    </form>
+
+    <br>
+    <!-- Rendered Buttons will get Dumped Here  -->
+    <div id="list-group"></div>
+
+    <!-- Events will get Dumped Here  -->
+    <div id="event-list-group"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        // Initial array of City
+        var cityArray = ["London", "Chicago", "Paris", "New York", "Boston"];
+        localStorage.setItem('cityArray', JSON.stringify(cityArray));
+
+        // displayCityInfo function re-renders the HTML to display the appropriate content
+        function displayCityInfo() {
+
+            var city = $(this).attr("city-name");
+            console.log(city);
+            //call the current weather fun
+            console.log("Inside displaycityinfo-------------------");
+            displayEventInfo(city);
+        }
+
+
+        // displayEventInfo function re-renders the HTML to display the appropriate content
+        function displayEventInfo(city) {
+
+            //console.log("Inside display Event info--------$$$$-----------");
+            //var queryURL = "https://api.appnexus.com/dma?name="+city;
+
+            //var corsAPI = "https://alex-rosencors.herokuapp.com/?url=" + queryURL;
+
+            // Creating an AJAX call for the specific event button being clicked
+            // $.ajax({
+            //     url: queryURL,
+            //     method: "GET"
+            // }).then(function (response) {
+            //     console.log(response);
+
+            // });
+
+
+
+            //var movie = $(this).attr("event-name");
+            //var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=QW0RmyVGGiG8UHcQOKsmezCeVAoqIaPU&locale=en-us&dmaId=324";
+            var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=QW0RmyVGGiG8UHcQOKsmezCeVAoqIaPU&city=" + city;
+
+            // Creating an AJAX call for the specific event button being clicked
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+
+
+                for (i = 0; i < 5; i++) {
+
+                    // Creating a div to hold the event
+                    var eventDiv = $("<div class='event'>");
+
+                    // Displaying the image
+                    var p_image = $("<img>").attr('src', response._embedded.events[i].images[0].url);
+                    p_image.attr("width", "50px%");
+                    eventDiv.append(p_image);
+
+                    // Displaying the date
+                    var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
+                    eventDiv.append(p_date);
+
+                    // Displaying the event
+                    var p_event = $("<p>").text(response._embedded.events[i].name);
+                    eventDiv.append(p_event);
+
+                    // Displaying a blank line
+                    var pFinal = $("<BR>");
+                    eventDiv.append(pFinal);
+
+                    // Adding event to div
+                    $("#event-list-group").prepend(eventDiv);
+                }
+            });
+
+        }
+
+
+
+        // Function for displaying city data
+        function renderButtons() {
+
+            var restoreCity = JSON.parse(localStorage.getItem('cityArray'));
+
+            // Deleting the city prior to adding new cities
+            // (this is necessary otherwise you will have repeat buttons)
+            $("#list-group").empty();
+
+            // Looping through the array of city
+            for (var i = 0; i < restoreCity.length; i++) {
+
+                // Then dynamicaly generating buttons for each city in the array
+                // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
+                var a = $("<button>");
+                // Adding a class of city-btn to our button
+                a.addClass("city-btn");
+                // Adding a data-attribute
+                a.attr("city-name", restoreCity[i]);
+                // Providing the initial button text
+                a.text(restoreCity[i]);
+                // Adding the button to the list-group div
+                $("#list-group").append(a);
+            }
+        }
+
+
+        $("#add-city").on("click", function (event) {
+            event.preventDefault();
+
+            var restoreCity = JSON.parse(localStorage.getItem('cityArray'));
+
+            // This line grabs the input from the textbox
+            var city = $("#search-input").val().trim();
+
+            // Adding movie from the textbox to our array
+            restoreCity.push(city);
+
+            localStorage.setItem('cityArray', JSON.stringify(restoreCity));
+
+            // Calling renderButtons which handles the processing of our City array
+            renderButtons();
+        });
+
+
+        // Adding a click event listener to all elements with a class of "list-group"
+        $(document).on("click", ".city-btn", displayCityInfo);
+
+
+        // Calling the renderButtons function to display the initial buttons
+        renderButtons();
+
+    </script>
 </body>
+
 </html>
