@@ -1,0 +1,183 @@
+
+* {
+    outline: none;
+    box-sizing: border-box;
+}
+/* 
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+*/
+
+body {
+    font-family: 'Merienda One', cursive;
+    background-color: #F7A992;
+   margin: 0;
+}
+.tb {
+    display: table;
+    width: 100%;
+}
+.td {
+    display: table-cell;
+    vertical-align: middle;
+}
+input,
+button {
+    color: #fff;
+    font-family: "Merienda One", cursive;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+#cover {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    width: 500px;
+    padding: 10px;
+    margin: -83px auto 0 auto;
+    background-color: #FF7575;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px #FF7C7C, 0 0 0 15px #FFFFFFEB;
+    transform: scale(0.6);
+}
+form {
+    height: 70px;
+}
+input[type="text"] {
+    width: 50%;
+    height: 50px;
+    font-size: 30px;
+    line-height: 1;
+}
+input[type="text"]::placeholder {
+    color: #E16868;
+}
+/* #s-cover
+{
+    width: 2px;
+    padding-left: 20px;
+} */
+button {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 85px;
+    cursor: pointer;
+}
+#s-circle {
+    position: relative;
+    top: -8px;
+    left: 0;
+    width: 43px;
+    height: 43px;
+    margin-top: 0;
+    border-width: 15px;
+    border: 15px solid #fff;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: 0.5s ease all;
+}
+button span {
+    position: absolute;
+    top: 68px;
+    left: 43px;
+    display: block;
+    width: 15px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+    transform: rotateZ(52deg);
+    transition: 0.5s ease all;
+}
+button span:before,
+button span:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    transform: rotateZ(0);
+    transition: 0.5s ease all;
+}
+#s-cover:hover #s-circle {
+    top: -1px;
+    width: 70px;
+    height: 15px;
+    border-width: 0;
+    background-color: #fff;
+    border-radius: 10px;
+}
+/* 
+]= */
+#s-cover:hover span {
+    top: 55%;
+    left: 60px;
+    width: 10px;
+    margin-top: -9px;
+    transform: rotateZ(0);
+}
+#s-cover:hover button span:before {
+    bottom: 11px;
+    transform: rotateZ(52deg);
+}
+#s-cover:hover button span:after {
+    bottom: -11px;
+    transform: rotateZ(-52deg);
+}
+#s-cover:hover button span:before,
+#s-cover:hover button span:after {
+    right: -5px;
+    width: 40px;
+    background-color: #fff;
+}
+a {
+    display: inline-block;
+    margin: 0 50px 0 0;
+}
+.container {
+    position: absolute;
+    top: 35%;
+    left: 37%;
+}
+/*  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    margin-top: 10px;
+     }
+*/
+#myDiv {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background-image: url('../css/images/travel.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+}
+#myGif {}
+.hide {
+    display: none;
+}
+h1,
+h2{
+    color:#82A0C2;
+    }
+#main-container{
+    background-color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    padding:30px;
+    position:absolute;
+}
