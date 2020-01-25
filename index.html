@@ -22,6 +22,78 @@
     </head>
 
     <style>
+        #weatherBox {
+            /* background: url(images/Weatherbackground.jpg) center/cover; */
+            /* opacity: 0.15; */
+            position: relative;
+            color: black;
+            z-index: 5;
+            padding: 10px
+        }
+
+
+        .weatherBackground {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            /* background-color:Black; */
+            background: url(images/Weatherbackground1.jpg) center/cover;
+            z-index: 1;
+            /* These three lines are for transparency in all browsers. */
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+            filter: alpha(opacity=15);
+            opacity: .15;
+        }
+
+        #attractionBox {
+            /* background: url(images/Attractionsbackground.jpg) center/cover;
+            opacity: 0.15; */
+            position: relative;
+            color: black;
+            z-index: 5;
+            padding: 10px
+        }
+
+        .attBackground {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            /* background-color:Black; */
+            background: url(images/Attractionsbackground.jpg) center/cover;
+            z-index: 1;
+            /* These three lines are for transparency in all browsers. */
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+            filter: alpha(opacity=15);
+            opacity: .15;
+        }
+
+        #attractioncentercolumn {
+            justify-content: center;
+            text-align: inherit;
+        }
+
+        #topAttractions {
+            position: relative;
+            /* opacity: 100%; */
+            /* margin: 30px;
+            background-color: #ffffff;
+            border: 1px solid black;
+            opacity: 0.6;
+            filter: alpha(opacity=60); */
+            /* For IE8 and earlier */
+        }
+
+        /* attractionInside p {
+            margin: 5%;
+            font-weight: bold;
+            color: #000000;
+        } */
+
+
         .css-selector {
             font-family: 'Alegreya', serif;
         }
@@ -37,6 +109,10 @@
         .iconWeather {
             width: 200px;
             height: 40px;
+            margin-left: 150px;
+            /* position: right;
+            justify-content: center;
+            text-align: inherit; */
         }
 
         .hero {
@@ -151,10 +227,12 @@
                                 <img src="images/TravelNutLogo2.png" class="logo" id="travellogo"
                                     style="max-width:100px;">
                             </figure>
-                            <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan" style="font-family: 'Alegreya', serif;">
+                            <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan"
+                                style="font-family: 'Alegreya', serif;">
                                 Adventure awaits,
                             </h2>
-                            <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan" style="font-family: 'Alegreya', serif;">
+                            <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan"
+                                style="font-family: 'Alegreya', serif;">
                                 Go find it!
                             </h2>
                         </div>
@@ -187,7 +265,8 @@
                     <div class="columns">
                         <div class="column is-8">
 
-                            <h1 class="title is-size-4" style="font-family: 'Alegreya', serif;">Ready to book a trip but not sure where?</h1>
+                            <h1 class="title is-size-4" style="font-family: 'Alegreya', serif;">Ready to book a trip but
+                                not sure where?</h1>
                             <p class="is-size-5" style="font-family: 'Alegreya', serif;">
                                 Answer these simple questions and we will suggest top destinations for you:
 
@@ -217,7 +296,8 @@
                                         </div>
                                         <br>
                                         <div class="buttons">
-                                            <button class="button is-info" style="font-family: 'Alegreya', serif;" id="search-city-radio">Bon voyage!</button>
+                                            <button class="button is-info" style="font-family: 'Alegreya', serif;"
+                                                id="search-city-radio">Bon voyage!</button>
                                         </div>
                                     </div>
 
@@ -229,7 +309,7 @@
                                                 <input type="radio" name="AdventureRelaxing" checked>
                                                 Adventure
                                             </label>
-                                            <label class="radio"style="font-family: 'Alegreya', serif;">
+                                            <label class="radio" style="font-family: 'Alegreya', serif;">
                                                 <input type="radio" name="AdventureRelaxing">
                                                 Relaxing
                                             </label>
@@ -251,7 +331,8 @@
                         </div>
 
                         <div class="column" style="text-align:center;">
-                            <h1 class="title is-size-4" style="font-family: 'Alegreya', serif;">I know where I want to go.</h1>
+                            <h1 class="title is-size-4" style="font-family: 'Alegreya', serif;">I know where I want to
+                                go.</h1>
 
                             <div class="field  has-addons has-addons-centered">
                                 <div class="control" style="text-align:center;">
@@ -271,7 +352,8 @@
             <!--Trending section-->
             <section class="section reduce-padding-margin-to-0" id="Trending">
                 <div class="container notification is-warning is-light">
-                    <h1 class="title is-size-4" style="font-family: 'Alegreya', serif;">Top 5 Trending Destinations 2020</h1>
+                    <h1 class="title is-size-4" style="font-family: 'Alegreya', serif;">Top 5 Trending Destinations 2020
+                    </h1>
                     <div class="columns" id="trendingDiv">
                     </div>
                 </div>
@@ -297,7 +379,7 @@
                         </div>
                         <!--Weather Box-->
                         <div class="column">
-                            <div class="box weather">
+                            <div class="box weather has-text-centered" id="weatherBox">
 
                                 <div class="container weatherbox">
                                     <h3 id="city"></h3>
@@ -307,7 +389,7 @@
                                     <h3 id="temp"></h3>
                                     </h3>
                                 </div>
-
+                                <div class="weatherBackground"></div>
                             </div>
                         </div>
                     </div>
@@ -322,14 +404,17 @@
                     <!--Result section row 2-->
                     <div class="columns">
                         <!--Attractions Box-->
-                        <div class="column">
-                            <div class="box attractions">
-                                <p class="title is-5" style="font-family: 'Alegreya', serif;">Top Attractions</p>
+                        <div class="column" id="attractioncentercolumn">
+                            <div class="box attractions has-text-centered" id="attractionBox">
+                                <p class="title is-5" style="font-family: 'Alegreya', serif;" style="opacity: 1;">Top
+                                    Attractions</p>
                                 <div id="topAttractions">
 
                                 </div>
                                 <!-- Attractions will get Dumped Here  -->
+                                <div class="attBackground"></div>
                             </div>
+
 
                         </div>
                         <!--Events Box-->
@@ -421,16 +506,24 @@
 
             //var Top5TrendingDestination = [["London", "images/SanAntino.jpg", "40.730610", "-73.935242"]]
 
-            var Top5TrendingDestination = [["Boston", "images/BostondownTown.jpg"], ["Shanghai", "images/shanghai.jpg"], ["Romania", "images/Romania.jpg"], ["slovenia", "images/Slovenia.jpg"], ["Thailand", "images/buriramthailand.jpg"]];
+            var Top5TrendingDestination = [["Boston", "images/BostondownTown.jpg"], ["Shanghai", "images/shanghai.jpg"], ["Romania", "images/Romania.jpg"], ["Slovenia", "images/Slovenia.jpg"], ["Thailand", "images/buriramthailand.jpg"]];
 
-            var Top3DomesticDestination = [["Seattle", "images/SeattleUSSTurnerJoy.jpg"], ["Yosemite", "images/YosemiteCA.jpg"], ["San Antonio", "images/SanAntino.jpg"]];
+            var Top3DomesticDestination = [["Seattle", "images/SeattleUSSTurnerJoy.jpg"], ["Yosemite", "images/YosemiteCA.jpg"], ["SanAntonio", "images/SanAntino.jpg"]];
             var Top3DomesticBeaches = [["Miami", "images/MiamiSouthBeach.jpg"], ["Maui", "images/Maui.jpg"], ["Myrtle", "images/Myrtle.jpg"]];
-            var Top3InternationalDestination = [["Budapest", "images/Hungary.jpg"], ["Barcelona", "images/spain.jpg"], ["Yogyakarta", "images/Indonesia.jpg"]];
-            var Top3InternationalBeaches = [["Ibiza", "images/Ibiza_spain.jpg"], ["Maldives", "images/Maldives.jpg"], ["Railay", "images/Railay_beach_Thailand.jpg"]];
+            var Top3InternationalDestination = [["Budapest", "images/Hungary.jpg"], ["Barcelona", "images/spain.jpg"], ["Indonesia", "images/Indonesia.jpg"]];
+            var Top3InternationalBeaches = [["Spain", "images/Ibiza_spain.jpg"], ["Maldives", "images/Maldives.jpg"], ["Tailand", "images/Railay_beach_Thailand.jpg"]];
 
-            var AttractionsArray = [["Boston", "images/BostonCommonandPublicGarden.jpg", "Commonand Public Garden"], ["Boston", "images/BostondownTown.jpg", "Down Town"], ["Boston", "images/Bostonfenwaypark.jpg", "Fenway Park"]];
-            // ["Miami", "images/MiamiSouthBeach.jpg", "South Beach"], ["Miami", "images/MiamiMathesonhammockpark.jpg", "Matheson Hammock Park"], ["Miami", "images/MiamiRickenbackerTrail.jpg", "Rickenbacker Trail"]];
+            var AttractionsArray = [
 
+                ["Boston", ["images/BostonCommonandPublicGarden.jpg", "Commonand Public Garden", "images/BostonTheFreedomTrail.jpg", "The Freedom Trail", "images/Bostonfenwaypark.jpg", "Fenway Park"]]
+
+                , ["Miami", ["images/MiamiSouthBeach.jpg", "South Beach", "images/MiamiMathesonhammockpark.jpg", "Matheson Hammock Park", "images/MiamiRickenbackerTrail.jpg", "Rickenbacker Trail"]]
+                ,
+                ["Seattle", ["images/SeattleSundayPublicSail.jpg", "Sunday Public Sail", "images/SeattleGlasshouseAtChihulyGarden.jpg", "Seattle Glass house AtChihuly Garden", "images/SeattleUSSTurnerJoy.jpg", "USS Turner Joy"]]
+                ,
+                ["Clearwater", ["images/clearwatermarineaqurium.jpg", "Marine Aqurium", "images/ClearwaterRideanairboat.jpg", "Rideanair Boat", "images/ClearwaterkeyWestAqurium.jpg", "keyWest Aqurium"]]
+
+            ];
 
             addCard("trendingDiv", Top5TrendingDestination[0][0], Top5TrendingDestination[0][1]);
             addCard("trendingDiv", Top5TrendingDestination[1][0], Top5TrendingDestination[1][1]);
@@ -628,64 +721,118 @@
                 $("#topAttractions").empty();
 
 
-                // Displaying the image
-                // console.log(AttractionsArray);
-                // console.log(AttractionsArray[0]);
+                //     // Displaying the image
+                //      console.log(AttractionsArray[0]);
+                //      console.log(AttractionsArray[0].length);
+
+                //      console.log(AttractionsArray[0][0]);
+                //      console.log(AttractionsArray[0][0].length);
+
+                //     // console.log(AttractionsArray[0]);
+                //     console.log(AttractionsArray[0][0]);
+                //     console.log(AttractionsArray[0][1]);
+                //    // console.log(AttractionsArray[0][2]);
+
+                // console.log("###############Before########  0      ##################");
                 // console.log(AttractionsArray[0][0]);
                 // console.log(AttractionsArray[0][1]);
-                // console.log(AttractionsArray[0][2]);
+
+                // console.log(AttractionsArray[0][1][0]);
+                // console.log(AttractionsArray[0][1][1]);
+
+                // console.log(AttractionsArray[0][1][2]);
+                // console.log(AttractionsArray[0][1][3]);
+
+                // console.log(AttractionsArray[0][1][4]);
+                // console.log(AttractionsArray[0][1][5]);
+
+                // console.log("###############Before########      1      ##################");
+                // console.log(AttractionsArray[1][0]);
+                // console.log(AttractionsArray[1][1]);
+
+                // console.log(AttractionsArray[1][1][0]);
+                // console.log(AttractionsArray[1][1][1]);
+
+                // console.log(AttractionsArray[1][1][2]);
+                // console.log(AttractionsArray[1][1][3]);
+
+                // console.log(AttractionsArray[1][1][4]);
+                // console.log(AttractionsArray[1][1][5]);
 
 
+                // console.log("###############    City value    ##################");
+                // console.log(AttractionsArray[0][0]);
+                // console.log(city);
 
-                for (let i = 0; i < AttractionsArray.length; i++) {
+                // console.log("###############    i & j max value lenght    ##################");
+                // console.log(AttractionsArray[0].length);
+                // console.log(AttractionsArray[0][0].length);
+                // console.log(AttractionsArray[1][0].length);
+                // console.log(AttractionsArray[2][0].length);
+                // console.log(AttractionsArray[3][0].length);
 
-                    var AttcDiv = $("<div class='Attc'>");
+                for (let i = 0; i < 4; i++) {
 
-                    var event_Attc = $("<span>")
+                    for (let j = 0; j < AttractionsArray[i][0].length; j++) {
 
-                    // < table class="table is-responsive" >
-                    //     <tbody>
-                    //         <tr>
-                    //             <td>Lorem ipsum - cell A1</td>
-                    //             <td>Lorem ipsum - cell B1</td>
-                    //         </tr>
-                    //     </tbody>
-                    // </table >
+                        console.log("#########################################");
+                        console.log("value of i: ", i);
+                        console.log("value of j: ", j);
 
-                    var p_image = $("<img>").attr('src', AttractionsArray[i][1]);
-                    p_image.attr("width", "100px");
-                    // p_image.attr("class", "reduce-padding-margin-to-0");
-                    p_image.attr("style", "vertical-align:middle;");
-                    p_image.attr("id", "#attc_img");
-                    event_Attc.append(p_image);
+                        if (AttractionsArray[i][0].trim().toLowerCase() == city.trim().toLowerCase()) {
 
-                    // Displaying the date
-                    // var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
-                    // p_date.attr("class", "reduce-padding-margin-to-5");
-                    // console.log(p_date);
-                    // console.log(moment(p_date).format("MMM Do YY"));
-                    //  event_Attc.append(moment(p_date).format("MMM Do YY"));
+                            var AttcDiv = $("<div class='Attc'>");
 
-                    // Displaying the event
-                    var p_attc = $("<p>").text(AttractionsArray[i][2]);
-                    //p_attc.attr('href', response._embedded.events[i].url);
-                    // p_attc.attr("class", "reduce-padding-margin-to-0");
-                    //p_attc attr("style", "color: #0000EE;");
-                    p_attc.attr("id", "#attc_p");
-                    p_attc.attr("style", "font-family: 'Alegreya', serif;");
-                    event_Attc.append(p_attc);
+                            var event_Attc = $("<span>")
 
-                    // Displaying a blank line
-                    // var pFinal = $("<BR>");
-                    //     event_span.append(pFinal);
+                            // < table class="table is-responsive" >
+                            //     <tbody>
+                            //         <tr>
+                            //             <td>Lorem ipsum - cell A1</td>
+                            //             <td>Lorem ipsum - cell B1</td>
+                            //         </tr>
+                            //     </tbody>
+                            // </table >
 
-                    //console.log(eventDiv);
-                    // Adding event to div
-                    // $("#event-list-image").prepend(eventDiv_img);
-                    // $("#event-list-dt").prepend(eventDiv_dt);
+                            var p_image = $("<img>").attr('src', AttractionsArray[i][1][j]);
+                            p_image.attr("width", "125px");
+                            // p_image.attr("class", "reduce-padding-margin-to-0");
+                            p_image.attr("style", "vertical-align:middle;");
+                            p_image.attr("id", "#attc_img");
+                            event_Attc.append(p_image);
+                            j++;
 
-                    AttcDiv.append(event_Attc);
-                    $("#topAttractions").prepend(AttcDiv);
+                            // Displaying the date
+                            // var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
+                            // p_date.attr("class", "reduce-padding-margin-to-5");
+                            // console.log(p_date);
+                            // console.log(moment(p_date).format("MMM Do YY"));
+                            //  event_Attc.append(moment(p_date).format("MMM Do YY"));
+
+                            // Displaying the event
+                            var p_attc = $("<p>").text(AttractionsArray[i][1][j]);
+                            //p_attc.attr('href', response._embedded.events[i].url);
+                            // p_attc.attr("class", "reduce-padding-margin-to-0");
+                            //p_attc attr("style", "color: #0000EE;");
+                            p_attc.attr("id", "#attc_p");
+                            p_attc.attr("style", "font-family: 'Alegreya', serif;");
+                            p_attc.attr("style", "font-weight: 'bold");
+                            event_Attc.append(p_attc);
+
+                            // Displaying a blank line
+                            // var pFinal = $("<BR>");
+                            //     event_span.append(pFinal);
+
+                            //console.log(eventDiv);
+                            // Adding event to div
+                            // $("#event-list-image").prepend(eventDiv_img);
+                            // $("#event-list-dt").prepend(eventDiv_dt);
+
+                            AttcDiv.append(event_Attc);
+                            $("#topAttractions").prepend(AttcDiv);
+                        }
+                    }
+
                 }
 
             }
@@ -791,6 +938,7 @@
                                 $(".iconWeather").empty()
                                 var iconW = $("<img>").attr("src", "https://api.accuweather.com/developers/Media/Default/WeatherIcons/" + mappedResponse[0].Day.Icon + "-s.png");
                                 // console.log(icon);
+                                iconW.attr("style", "text-align : center;");
                                 $(".iconWeather").append(iconW);
 
                                 //call Map function for a given city based on coordinates
