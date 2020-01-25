@@ -17,10 +17,15 @@
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
             crossorigin=""></script>
+        <link href="https://fonts.googleapis.com/css?family=Alegreya&display=swap" rel="stylesheet">
 
     </head>
 
     <style>
+        .css-selector {
+            font-family: 'Alegreya', serif;
+        }
+
         .weatherbox {
             font-size: 30px;
         }
@@ -146,10 +151,10 @@
                                 <img src="images/TravelNutLogo2.png" class="logo" id="travellogo"
                                     style="max-width:100px;">
                             </figure>
-                            <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan">
+                            <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan" style="font-family: 'Alegreya', serif;">
                                 Adventure awaits,
                             </h2>
-                            <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan">
+                            <h2 class="is-italic has-text-weight-bold has-text-primary travelSlogan" style="font-family: 'Alegreya', serif;">
                                 Go find it!
                             </h2>
                         </div>
@@ -161,9 +166,9 @@
                                     <div class="navbar-item">
                                         <div class="buttons">
                                             <a class="button is-primary">
-                                                <strong>Sign up</strong>
+                                                <strong style="font-family: 'Alegreya', serif;">Sign up</strong>
                                             </a>
-                                            <a class="button is-light">
+                                            <a class="button is-light" style="font-family: 'Alegreya', serif;">
                                                 Log in
                                             </a>
                                         </div>
@@ -182,37 +187,37 @@
                     <div class="columns">
                         <div class="column is-8">
 
-                            <h1 class="title is-size-4">Ready to book a trip but not sure where?</h1>
-                            <p class="is-size-5">
+                            <h1 class="title is-size-4" style="font-family: 'Alegreya', serif;">Ready to book a trip but not sure where?</h1>
+                            <p class="is-size-5" style="font-family: 'Alegreya', serif;">
                                 Answer these simple questions and we will suggest top destinations for you:
 
                                 <div class="columns">
                                     <div class="column">
                                         <div class="control">
-                                            <label class="radio">
+                                            <label class="radio" style="font-family: 'Alegreya', serif;">
                                                 <input type="radio" name="domesticInternational" value="Domestic"
                                                     checked>
                                                 Domestic
                                             </label>
-                                            <label class="radio">
+                                            <label class="radio" style="font-family: 'Alegreya', serif;">
                                                 <input type="radio" name="domesticInternational" value="International">
                                                 International
                                             </label>
                                         </div>
 
                                         <div class="control">
-                                            <label class="radio">
+                                            <label class="radio" style="font-family: 'Alegreya', serif;">
                                                 <input type="radio" name="weather" value="WarmWeather" checked>
                                                 Warm Weather
                                             </label>
-                                            <label class="radio">
+                                            <label class="radio" style="font-family: 'Alegreya', serif;">
                                                 <input type="radio" name="weather" value="AnyWeather">
                                                 Any weather
                                             </label>
                                         </div>
                                         <br>
                                         <div class="buttons">
-                                            <button class="button is-info" id="search-city-radio">Bon voyage!</button>
+                                            <button class="button is-info" style="font-family: 'Alegreya', serif;" id="search-city-radio">Bon voyage!</button>
                                         </div>
                                     </div>
 
@@ -220,22 +225,22 @@
 
                                     <div class="column">
                                         <div class="control">
-                                            <label class="radio">
+                                            <label class="radio" style="font-family: 'Alegreya', serif;">
                                                 <input type="radio" name="AdventureRelaxing" checked>
                                                 Adventure
                                             </label>
-                                            <label class="radio">
+                                            <label class="radio"style="font-family: 'Alegreya', serif;">
                                                 <input type="radio" name="AdventureRelaxing">
                                                 Relaxing
                                             </label>
                                         </div>
 
                                         <div class="control">
-                                            <label class="radio">
+                                            <label class="radio" style="font-family: 'Alegreya', serif;">
                                                 <input type="radio" name="guidedtoursSelf" checked>
                                                 Guided Tours
                                             </label>
-                                            <label class="radio">
+                                            <label class="radio" style="font-family: 'Alegreya', serif;">
                                                 <input type="radio" name="guidedtoursSelf">
                                                 Self-Guided Tours
                                             </label>
@@ -246,14 +251,14 @@
                         </div>
 
                         <div class="column" style="text-align:center;">
-                            <h1 class="title is-size-4">I know where I want to go.</h1>
+                            <h1 class="title is-size-4" style="font-family: 'Alegreya', serif;">I know where I want to go.</h1>
 
                             <div class="field  has-addons has-addons-centered">
                                 <div class="control" style="text-align:center;">
                                     <input class="input" id="search-input" type="text" placeholder="Search City">
                                 </div>
                                 <div class="control">
-                                    <a class="button is-info" id="add-city">
+                                    <a class="button is-info" id="add-city" style="font-family: 'Alegreya', serif;">
                                         Search
                                     </a>
                                 </div>
@@ -266,7 +271,7 @@
             <!--Trending section-->
             <section class="section reduce-padding-margin-to-0" id="Trending">
                 <div class="container notification is-warning is-light">
-                    <h1 class="title is-size-4">Top 5 Trending Destinations 2020</h1>
+                    <h1 class="title is-size-4" style="font-family: 'Alegreya', serif;">Top 5 Trending Destinations 2020</h1>
                     <div class="columns" id="trendingDiv">
                     </div>
                 </div>
@@ -275,7 +280,7 @@
             <!--Suggestion section-->
             <section class="section reduce-padding-margin-to-0" id="Suggestions">
                 <div class="container notification is-info is-light">
-                    <h1 class="title is-size-4">Destination Suggestions</h1>
+                    <h1 class="title is-size-4" style="font-family: 'Alegreya', serif;">Destination Suggestions</h1>
                     <div class="columns" id="suggestionsDiv">
                     </div>
             </section>
@@ -319,7 +324,7 @@
                         <!--Attractions Box-->
                         <div class="column">
                             <div class="box attractions">
-                                <p class="title is-5">Top Attractions</p>
+                                <p class="title is-5" style="font-family: 'Alegreya', serif;">Top Attractions</p>
                                 <div id="topAttractions">
 
                                 </div>
@@ -330,7 +335,7 @@
                         <!--Events Box-->
                         <div class="column">
                             <div class="box events">
-                                <p class="title is-5">Top events</p>
+                                <p class="title is-5" style="font-family: 'Alegreya', serif;">Top events</p>
                                 <div id="topEvents">
 
                                 </div>
@@ -346,7 +351,7 @@
             <section class="section reduce-padding-margin-to-0">
 
                 <div class="container notification is-info">
-                    <h1 class="title is-size-4">Partner Sites</h1>
+                    <h1 class="title is-size-4" style="font-family: 'Alegreya', serif;">Partner Sites</h1>
 
                     <!-- <div class="container"> -->
                     <div class="columns">
@@ -394,7 +399,7 @@
                             <!-- </div> -->
                         </div>
                         <div class="column">
-                            <p>&#169; 2020 JSON Jaguars, All rights reserved</p>
+                            <p style="font-family: 'Alegreya', serif;">&#169; 2020 JSON Jaguars, All rights reserved</p>
                         </div>
                         <div class="column" style="text-align:right;">
                             <!-- Add font awesome icons -->
@@ -460,47 +465,49 @@
                         // Creating a div to hold the event
                         // var eventDiv_img = $("<div class='event'>");
                         // var eventDiv_dt = $("<div class='event'>");
-                        
-                            var eventDiv = $("<div class='event'>");
 
-                            var event_span = $("<span>")
-                            //eventDiv.append(event_span);
+                        var eventDiv = $("<div class='event'>");
+
+                        var event_span = $("<span>")
+                        //eventDiv.append(event_span);
 
 
-                            // Displaying the image
-                            var p_image = $("<img>").attr('src', response._embedded.events[i].images[0].url);
-                            p_image.attr("width", "60px%");
-                            p_image.attr("class", "reduce-padding-margin-to-5");
-                            p_image.attr("style", "vertical-align:middle;");
-                            event_span.append(p_image);
+                        // Displaying the image
+                        var p_image = $("<img>").attr('src', response._embedded.events[i].images[0].url);
+                        p_image.attr("width", "60px%");
+                        p_image.attr("class", "reduce-padding-margin-to-5");
+                        p_image.attr("style", "vertical-align:middle;");
+                        event_span.append(p_image);
 
-                            // Displaying the date
-                            var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
-                            // p_date.attr("class", "reduce-padding-margin-to-5");
-                            // console.log(p_date);
-                            // console.log(moment(p_date).format("MMM Do YY"));
-                            event_span.append(moment(p_date).format("MMM Do YY"));
+                        // Displaying the date
+                        var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
+                        // p_date.attr("class", "reduce-padding-margin-to-5");
+                        // console.log(p_date);
+                        // console.log(moment(p_date).format("MMM Do YY"));
+                        p_date.attr("style", "font-family: 'Alegreya', serif;");
+                        event_span.append(moment(p_date).format("MMM Do YY"));
 
-                            // Displaying the event
-                            var p_event = $("<a>").text(response._embedded.events[i].name);
-                            p_event.attr('href', response._embedded.events[i].url);
-                            p_event.attr("class", "reduce-padding-margin-to-5");
-                            p_event.attr("style", "color: #0000EE;");
-                            event_span.append(p_event);
+                        // Displaying the event
+                        var p_event = $("<a>").text(response._embedded.events[i].name);
+                        p_event.attr('href', response._embedded.events[i].url);
+                        p_event.attr("class", "reduce-padding-margin-to-5");
+                        p_event.attr("style", "color: #0000EE;");
+                        p_event.attr("style", "font-family: 'Alegreya', serif;");
+                        event_span.append(p_event);
 
-                            // Displaying a blank line
-                            // var pFinal = $("<BR>");
-                            //     event_span.append(pFinal);
+                        // Displaying a blank line
+                        // var pFinal = $("<BR>");
+                        //     event_span.append(pFinal);
 
-                            //console.log(eventDiv);
-                            // Adding event to div
-                            // $("#event-list-image").prepend(eventDiv_img);
-                            // $("#event-list-dt").prepend(eventDiv_dt);
+                        //console.log(eventDiv);
+                        // Adding event to div
+                        // $("#event-list-image").prepend(eventDiv_img);
+                        // $("#event-list-dt").prepend(eventDiv_dt);
 
-                            eventDiv.append(event_span);
+                        eventDiv.append(event_span);
 
-                            $("#topEvents").prepend(eventDiv);
-                        
+                        $("#topEvents").prepend(eventDiv);
+
                     }
                 });
 
@@ -665,6 +672,7 @@
                     // p_attc.attr("class", "reduce-padding-margin-to-0");
                     //p_attc attr("style", "color: #0000EE;");
                     p_attc.attr("id", "#attc_p");
+                    p_attc.attr("style", "font-family: 'Alegreya', serif;");
                     event_Attc.append(p_attc);
 
                     // Displaying a blank line
@@ -769,9 +777,17 @@
                                 })
                                 // console.log(mappedResponse)
                                 $("#city").text("City: " + keyResponse[0].LocalizedName)
+                                $("#city").attr("style", "font-family: 'Alegreya', serif;");
+
                                 $("#date").text("Date: " + moment(forecastResponse.DailyForecasts[0].Date).format("MM/DD/YYYY"))
+                                $("#date").attr("style", "font-family: 'Alegreya', serif;");
+
                                 $("#temperature").text("Min Temp: " + forecastResponse.DailyForecasts[0].Temperature.Minimum.Value)
+                                $("#temperature").attr("style", "font-family: 'Alegreya', serif;");
+
                                 $("#temp").text("Max Temp: " + forecastResponse.DailyForecasts[0].Temperature.Maximum.Value)
+                                $("#temp").attr("style", "font-family: 'Alegreya', serif;");
+
                                 $(".iconWeather").empty()
                                 var iconW = $("<img>").attr("src", "https://api.accuweather.com/developers/Media/Default/WeatherIcons/" + mappedResponse[0].Day.Icon + "-s.png");
                                 // console.log(icon);
