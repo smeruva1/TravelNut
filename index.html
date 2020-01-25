@@ -109,6 +109,27 @@
             height: 350px;
             overflow: auto;
         }
+
+        /* #attc_img , #attc_p {
+        align: middle;
+        display: inline;
+        float:left; 
+    } */
+
+        /* #attc_img {
+            display: inline;
+            width: 100px;
+            height: 100px;
+        }
+
+        #attc_p {
+            display: inline;
+        } */
+
+        /* #attc_img {
+            height: 200px;
+            
+        }  */
     </style>
 
     <body>
@@ -298,7 +319,13 @@
                         <!--Attractions Box-->
                         <div class="column">
                             <div class="box attractions">
+                                <p class="title is-5">Top Attractions</p>
+                                <div id="topAttractions">
+
+                                </div>
+                                <!-- Attractions will get Dumped Here  -->
                             </div>
+
                         </div>
                         <!--Events Box-->
                         <div class="column">
@@ -389,12 +416,15 @@
 
             //var Top5TrendingDestination = [["London", "images/SanAntino.jpg", "40.730610", "-73.935242"]]
 
-            var Top5TrendingDestination = [["London", "images/Tokyo.jpg"], ["Shanghai", "images/shanghai.jpg"], ["Romania", "images/Romania.jpg"], ["slovenia", "images/Slovenia.jpg"], ["Thailand", "images/buriramthailand.jpg"]];
+            var Top5TrendingDestination = [["Boston", "images/BostondownTown.jpg"], ["Shanghai", "images/shanghai.jpg"], ["Romania", "images/Romania.jpg"], ["slovenia", "images/Slovenia.jpg"], ["Thailand", "images/buriramthailand.jpg"]];
 
-            var Top3DomesticDestination = [["test", "images/Tokyo.jpg"], ["New", "images/YosemiteCA.jpg"], ["Chicago", "images/SanAntino.jpg"]];
-            var Top3DomesticBeaches = [["Laguna", "images/LagunaCA.jpg"], ["Maui", "images/Maui.jpg"], ["Myrtle", "images/Myrtle.jpg"]];
+            var Top3DomesticDestination = [["Seattle", "images/SeattleUSSTurnerJoy.jpg"], ["Yosemite", "images/YosemiteCA.jpg"], ["San Antonio", "images/SanAntino.jpg"]];
+            var Top3DomesticBeaches = [["Miami", "images/MiamiSouthBeach.jpg"], ["Maui", "images/Maui.jpg"], ["Myrtle", "images/Myrtle.jpg"]];
             var Top3InternationalDestination = [["Budapest", "images/Hungary.jpg"], ["Barcelona", "images/spain.jpg"], ["Yogyakarta", "images/Indonesia.jpg"]];
             var Top3InternationalBeaches = [["Ibiza", "images/Ibiza_spain.jpg"], ["Maldives", "images/Maldives.jpg"], ["Railay", "images/Railay_beach_Thailand.jpg"]];
+
+            var AttractionsArray = [["Boston", "images/BostonCommonandPublicGarden.jpg", "Commonand Public Garden"], ["Boston", "images/BostondownTown.jpg", "Down Town"], ["Boston", "images/Bostonfenwaypark.jpg", "Fenway Park"]];
+            // ["Miami", "images/MiamiSouthBeach.jpg", "South Beach"], ["Miami", "images/MiamiMathesonhammockpark.jpg", "Matheson Hammock Park"], ["Miami", "images/MiamiRickenbackerTrail.jpg", "Rickenbacker Trail"]];
 
 
             addCard("trendingDiv", Top5TrendingDestination[0][0], Top5TrendingDestination[0][1]);
@@ -430,44 +460,47 @@
                         // Creating a div to hold the event
                         // var eventDiv_img = $("<div class='event'>");
                         // var eventDiv_dt = $("<div class='event'>");
-                        var eventDiv = $("<div class='event'>");
+                        
+                            var eventDiv = $("<div class='event'>");
 
-                        var event_span = $("<span>")
-                        //eventDiv.append(event_span);
+                            var event_span = $("<span>")
+                            //eventDiv.append(event_span);
 
-                        // Displaying the image
-                        var p_image = $("<img>").attr('src', response._embedded.events[i].images[0].url);
-                        p_image.attr("width", "60px%");
-                        p_image.attr("class", "reduce-padding-margin-to-5");
-                        p_image.attr("style", "vertical-align:middle;");
-                        event_span.append(p_image);
 
-                        // Displaying the date
-                        var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
-                        // p_date.attr("class", "reduce-padding-margin-to-5");
-                        // console.log(p_date);
-                        // console.log(moment(p_date).format("MMM Do YY"));
-                        event_span.append(moment(p_date).format("MMM Do YY"));
+                            // Displaying the image
+                            var p_image = $("<img>").attr('src', response._embedded.events[i].images[0].url);
+                            p_image.attr("width", "60px%");
+                            p_image.attr("class", "reduce-padding-margin-to-5");
+                            p_image.attr("style", "vertical-align:middle;");
+                            event_span.append(p_image);
 
-                        // Displaying the event
-                        var p_event = $("<a>").text(response._embedded.events[i].name);
-                        p_event.attr('href', response._embedded.events[i].url);
-                        p_event.attr("class", "reduce-padding-margin-to-5");
-                        p_event.attr("style", "color: #0000EE;");
-                        event_span.append(p_event);
+                            // Displaying the date
+                            var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
+                            // p_date.attr("class", "reduce-padding-margin-to-5");
+                            // console.log(p_date);
+                            // console.log(moment(p_date).format("MMM Do YY"));
+                            event_span.append(moment(p_date).format("MMM Do YY"));
 
-                        // Displaying a blank line
-                        // var pFinal = $("<BR>");
-                        //     event_span.append(pFinal);
+                            // Displaying the event
+                            var p_event = $("<a>").text(response._embedded.events[i].name);
+                            p_event.attr('href', response._embedded.events[i].url);
+                            p_event.attr("class", "reduce-padding-margin-to-5");
+                            p_event.attr("style", "color: #0000EE;");
+                            event_span.append(p_event);
 
-                        //console.log(eventDiv);
-                        // Adding event to div
-                        // $("#event-list-image").prepend(eventDiv_img);
-                        // $("#event-list-dt").prepend(eventDiv_dt);
+                            // Displaying a blank line
+                            // var pFinal = $("<BR>");
+                            //     event_span.append(pFinal);
 
-                        eventDiv.append(event_span);
+                            //console.log(eventDiv);
+                            // Adding event to div
+                            // $("#event-list-image").prepend(eventDiv_img);
+                            // $("#event-list-dt").prepend(eventDiv_dt);
 
-                        $("#topEvents").prepend(eventDiv);
+                            eventDiv.append(event_span);
+
+                            $("#topEvents").prepend(eventDiv);
+                        
                     }
                 });
 
@@ -483,6 +516,7 @@
                 var city = $("#search-input").val().trim();
 
                 renderweather(city);
+                addAttractions(city);
 
                 // Adding movie from the textbox to our array
                 //restoreCity.push(city);
@@ -510,6 +544,7 @@
                 var city = $(this).attr("data");
 
                 renderweather(city);
+                addAttractions(city);
                 displayEventInfo(city);
 
                 $("#Trending").hide();
@@ -580,6 +615,73 @@
 
             }
 
+            //function to render attractions for a given city
+            function addAttractions(city) {
+
+                $("#topAttractions").empty();
+
+
+                // Displaying the image
+                // console.log(AttractionsArray);
+                // console.log(AttractionsArray[0]);
+                // console.log(AttractionsArray[0][0]);
+                // console.log(AttractionsArray[0][1]);
+                // console.log(AttractionsArray[0][2]);
+
+
+
+                for (let i = 0; i < AttractionsArray.length; i++) {
+
+                    var AttcDiv = $("<div class='Attc'>");
+
+                    var event_Attc = $("<span>")
+
+                    // < table class="table is-responsive" >
+                    //     <tbody>
+                    //         <tr>
+                    //             <td>Lorem ipsum - cell A1</td>
+                    //             <td>Lorem ipsum - cell B1</td>
+                    //         </tr>
+                    //     </tbody>
+                    // </table >
+
+                    var p_image = $("<img>").attr('src', AttractionsArray[i][1]);
+                    p_image.attr("width", "100px");
+                    // p_image.attr("class", "reduce-padding-margin-to-0");
+                    p_image.attr("style", "vertical-align:middle;");
+                    p_image.attr("id", "#attc_img");
+                    event_Attc.append(p_image);
+
+                    // Displaying the date
+                    // var p_date = $("<p>").text(response._embedded.events[i].dates.start.localDate);
+                    // p_date.attr("class", "reduce-padding-margin-to-5");
+                    // console.log(p_date);
+                    // console.log(moment(p_date).format("MMM Do YY"));
+                    //  event_Attc.append(moment(p_date).format("MMM Do YY"));
+
+                    // Displaying the event
+                    var p_attc = $("<p>").text(AttractionsArray[i][2]);
+                    //p_attc.attr('href', response._embedded.events[i].url);
+                    // p_attc.attr("class", "reduce-padding-margin-to-0");
+                    //p_attc attr("style", "color: #0000EE;");
+                    p_attc.attr("id", "#attc_p");
+                    event_Attc.append(p_attc);
+
+                    // Displaying a blank line
+                    // var pFinal = $("<BR>");
+                    //     event_span.append(pFinal);
+
+                    //console.log(eventDiv);
+                    // Adding event to div
+                    // $("#event-list-image").prepend(eventDiv_img);
+                    // $("#event-list-dt").prepend(eventDiv_dt);
+
+                    AttcDiv.append(event_Attc);
+                    $("#topAttractions").prepend(AttcDiv);
+                }
+
+            }
+
             //function to render map for a given city
             function addMap(lat, lon) {
                 $('.weather-map-column').empty();
@@ -613,7 +715,7 @@
                 if (key === "key") {
                     var query = "&q=" + value;
                     var details = "&details=false";
-                    baseURL += "http://dataservice.accuweather.com/locations/v1/cities/search" + apikey + query + details;
+                    baseURL += "https://dataservice.accuweather.com/locations/v1/cities/search" + apikey + query + details;
 
                     // console.log("printing baseURL-------------");
                     // console.log(baseURL);
@@ -634,7 +736,7 @@
 
 
                 } else if (key === "forecast") {
-                    baseURL += "http://dataservice.accuweather.com/forecasts/v1/daily/1day/" + value + apikey
+                    baseURL += "https://dataservice.accuweather.com/forecasts/v1/daily/1day/" + value + apikey
                 }
                 return baseURL
             }
@@ -681,7 +783,15 @@
                     });
             };
 
+            //Reload page when you click on logo
+            $("#travellogo").on("click", function (event) {
 
+                location.reload(true);
+                // $("#Trending").show();
+                // $("#Suggestions").hide();
+                // $(".resultsSection").hide();
+
+            });
         </script>
     </body>
 
